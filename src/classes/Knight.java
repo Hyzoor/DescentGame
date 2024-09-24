@@ -5,11 +5,11 @@ public class Knight extends Player {
 
     //Constructor
     Knight(){
-        super(100, 3, 2, new ArrayList<Attack>());
+        super(50, 40, 20, new ArrayList<Attack>());
 
-        attackList.add(new Attack("Ataque rapido", 5));
-        attackList.add(new Attack("Ataque fuerte", 7));
-        attackList.add(new Attack("Habilidad Knight 3", 1));
+        attackList.add(new Attack("Sword Strike", 2));
+        attackList.add(new Attack("Drain Mace", 5)); //drenar vida
+        attackList.add(new Attack("Shield Reduction", 1)); //50% menos de daño recibido
 
     }
 
