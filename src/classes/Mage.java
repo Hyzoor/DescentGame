@@ -9,7 +9,7 @@ public class Mage extends Player {
 
         attackList.add(new Attack("Ice Beam", 3));
         attackList.add(new Attack("Thunder", 7));
-        attackList.add(new Attack("Magic Shield", 1)); //Protect
+        attackList.add(new Attack("Magic Shield", 1));
 
     }
 

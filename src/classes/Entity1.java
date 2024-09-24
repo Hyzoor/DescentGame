@@ -16,9 +16,9 @@ abstract public class Entity1 {
 
 
     //Methods
-    public void takeDamage(int baseAttack, int attackTypePower) {
+    public void takeDamage(int baseAttack, int attackPower) {
         // Fórmula: (valor del ataque base del personaje * valor del ataque base del tipo de ataque) / (defensa * 0.4)
-        double damage = (baseAttack * attackTypePower) / (defense * 0.4);
+        double damage = (baseAttack * attackPower) / (defense * 0.4);
 
         // Redondeo a la alza
         int finalDamage = (int) Math.ceil(damage);
@@ -27,7 +27,7 @@ abstract public class Entity1 {
         health -= finalDamage;
 
         // Que la salud no baje por debajo de 0
-        if (health < 0) {
+        if (isDead()) {
             health = 0;
         }
     }

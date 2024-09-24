@@ -14,29 +14,41 @@ public class Turn {
 
 
     //Methods
-    public void doDamage(int damage){
-        this.defender.takeDamage(damage);
+    public Attack selectAttack(){
+        /* TODO implementar logica de seleccion de ataque para el jugador */
+        return attacker.getAttackList().get(1);
     }
 
 
+    public int calculateDamage(Attack attack){
 
+        return (int) ((attacker.getStrength() * attack.getAttackPower()) / (defender.getDefense() * 0.4));
+    }
+
+    public void performAttack(){
+
+        Attack attackSelected = selectAttack();
+        int damage = calculateDamage(attackSelected);
+
+        defender.takeDamage(damage);
+    }
 
 
     //Setters and Getters
     Entity getAttacker(){
-        return this.attacker;
+        return attacker;
     }
 
     Entity getDefender(){
-        return this.defender;
+        return defender;
     }
 
     void setAttacker(Entity newAttacker){
-        this.attacker = newAttacker;
+        attacker = newAttacker;
     }
 
     void setDefender(Entity newDefender){
-        this.defender = newDefender;
+        defender = newDefender;
     }
 
 }

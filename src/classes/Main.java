@@ -3,16 +3,21 @@ package classes;
 public class Main {
     public static void main(String[] args){
 
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Knight knight1 = new Knight();
+        Mage mage1 = new Mage();
+        Rogue rogue1 = new Rogue();
 
-        Turn prueba1 = new Turn(player1, player2);
+        Turn turno1 = new Turn(knight1, mage1);
 
-        player2.showHealth();
-        prueba1.doDamage(player1.attack1());
-        player2.showHealth();
-        prueba1.doDamage(player1.attack2());
-        player2.showHealth();
+        mage1.showHealth();
+        turno1.performAttack();
+        mage1.showHealth();
+
+        turno1.setDefender(rogue1);
+        rogue1.showHealth();
+        turno1.performAttack();
+        rogue1.showHealth();
+
 
     }
 
