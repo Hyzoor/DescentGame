@@ -1,0 +1,12 @@
+//TODO
+    - Finish turn functionality: selection attack
+    - Implement dead methods, check and do something when killing an entity
+
+
+//Changes made
+
+I moved the calculateDamage function from the entity class to the turn class,
+so turn class manages the whole turn in a battle: attack selection, calculateDamage, and then the defender takes the damage.
+
+Added a small test on main class.
+

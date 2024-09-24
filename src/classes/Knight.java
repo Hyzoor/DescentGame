@@ -13,4 +13,11 @@ public class Knight extends Player {
 
     }
 
+
+    public void showHealth(){
+        System.out.println("Knight ");
+        super.showHealth();
+        System.out.println();
+
+    }
 }

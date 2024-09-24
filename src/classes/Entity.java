@@ -33,7 +33,7 @@ abstract public class Entity {
     }
 
     public void showHealth(){
-        System.out.println("Health: " + getHealth());
+        System.out.print("health: " + getHealth());
     }
 
 

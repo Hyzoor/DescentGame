@@ -13,4 +13,11 @@ public class Mage extends Player {
 
     }
 
+
+    public void showHealth(){
+        System.out.print("Mage ");
+        super.showHealth();
+        System.out.println();
+
+    }
 }

@@ -13,4 +13,12 @@ public class Rogue extends Player {
 
     }
 
+
+    public void showHealth(){
+        System.out.print("Rogue ");
+        super.showHealth();
+        System.out.println();
+
+    }
+
 }
