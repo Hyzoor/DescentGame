@@ -10,8 +10,6 @@ public class Attack {
         setAttackPower(newAttackPower);
     }
 
-
-
     //Setters and Getters
     public void setName(String newName){
         name = newName;
