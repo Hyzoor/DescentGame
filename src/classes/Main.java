@@ -11,6 +11,8 @@ public class Main {
         player2.showHealth();
         prueba1.doDamage(player1.attack1());
         player2.showHealth();
+        prueba1.doDamage(player1.attack2());
+        player2.showHealth();
 
     }
 

@@ -7,43 +7,52 @@ abstract public class Entity {
     protected int strength;
     protected int defense;
 
+    Entity(int newHealth, int newStrength, int newDefense){
+        setDefense(newDefense);
+        setHealth(newHealth);
+        setStrength(newStrength);
+    }
+
+
+
+    //Methods
+    public void takeDamage(int attackPower){
+        health -= attackPower;
+    }
+
+    public boolean isDead(){
+        return health <= 0;
+    }
+
+    public void showHealth(){
+        System.out.println("Health: " + getHealth());
+    }
+
+
 
 
     //Setters and Getters
     public void setHealth(int newHealth){
-        this.health = newHealth;
+        health = newHealth;
     }
 
     public void setDefense(int newStrength){
-        this.strength = newStrength;
+        strength = newStrength;
     }
 
     public void setStrength(int newDefense){
-        this.defense = newDefense;
+        defense = newDefense;
     }
 
     public int getHealth(){
-        return this.health;
+        return health;
     }
 
     public int getStrength(){
-        return this.strength;
+        return strength;
     }
 
     public int getDefense(){
-        return this.defense;
-    }
-
-    //Methods
-    public void takeDamage(int attackPower){
-            this.health -= attackPower;
-    }
-
-    public boolean isDead(){
-        return this.health <= 0;
-    }
-
-    public void showHealth(){
-        System.out.println(this.getHealth());
+        return defense;
     }
 }

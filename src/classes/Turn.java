@@ -14,6 +14,15 @@ public class Turn {
 
 
     //Methods
+    public void doDamage(int damage){
+        this.defender.takeDamage(damage);
+    }
+
+
+
+
+
+    //Setters and Getters
     Entity getAttacker(){
         return this.attacker;
     }
@@ -28,11 +37,6 @@ public class Turn {
 
     void setDefender(Entity newDefender){
         this.defender = newDefender;
-    }
-
-    public void doDamage(int damage){
-
-        this.defender.takeDamage(damage);
     }
 
 }

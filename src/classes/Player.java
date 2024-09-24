@@ -1,37 +1,49 @@
 package classes;
+import java.util.List;
+import java.util.ArrayList;
 
-public class Player extends Entity{
+public abstract class Player extends Entity{
 
     //Attributes
-    private int gold;
+    protected int gold;
+    protected List<Attack> attackList;
 
-    //Methods
-    Player(){
-        this.health = 100;
-        this.defense = 20;
-        this.strength = 25;
-        this.gold = 0;
+
+    Player(int newHealth, int newDefense, int newStrength, List<Attack> newAttackList){
+        super(newHealth, newStrength, newDefense);
+        setGold(0);
+        setAttackList(newAttackList);
     }
 
-    public int attack1(){
-        return (int) (this.getStrength() * 0.2);
-    }
+
 
     //Gold methods
-    public int getGold(){
-        return this.gold;
-    }
-
     public void addGold(int newGold){
-        this.gold += newGold;
+        gold += newGold;
     }
 
     public void removeGold(int goldToRemove){
-        this.gold -= goldToRemove;
+        gold -= goldToRemove;
     }
 
-    public void showHealth(){
-        System.out.println("Jugador: ");
-        super.showHealth();
+
+
+
+
+    //Getters and Setters
+    public int getGold(){
+        return gold;
+    }
+
+    public List<Attack> getAttackList(){
+        return attackList;
+    }
+
+    public void setAttackList(List<Attack> newAttackList){
+        attackList = newAttackList;
+    }
+
+    public void setGold(int newGold){
+        gold = newGold;
     }
 }
