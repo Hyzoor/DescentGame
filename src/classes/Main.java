@@ -1,5 +1,9 @@
 package classes;
 
+import classes.entitys.Knight;
+import classes.entitys.Mage;
+import classes.entitys.Rogue;
+
 public class Main {
     public static void main(String[] args){
 
@@ -7,16 +11,10 @@ public class Main {
         Mage mage1 = new Mage();
         Rogue rogue1 = new Rogue();
 
-        Turn turno1 = new Turn(knight1, mage1);
 
-        mage1.showHealth();
-        turno1.performAttack();
-        mage1.showHealth();
+        Battle battle = new Battle(knight1, rogue1);
+        battle.start();
 
-        turno1.setDefender(rogue1);
-        rogue1.showHealth();
-        turno1.performAttack();
-        rogue1.showHealth();
 
 
     }

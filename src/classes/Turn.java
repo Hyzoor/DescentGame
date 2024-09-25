@@ -1,5 +1,7 @@
 package classes;
 
+import classes.entitys.Entity;
+
 public class Turn {
 
     //Attributes
@@ -7,29 +9,28 @@ public class Turn {
     private Entity defender;
 
 
-    Turn(Entity newAttacker, Entity newDefender){
+    public Turn(Entity newAttacker, Entity newDefender){
         setAttacker(newAttacker);
         setDefender(newDefender);
     }
 
 
     //Methods
-    public Attack selectAttack(){
+    private Attack selectAttack(){
         /* TODO implementar logica de seleccion de ataque para el jugador */
         return attacker.getAttackList().get(1);
     }
 
 
-    public int calculateDamage(Attack attack){
+    private int calculateDamage(Attack attack){
 
         return (int) ((attacker.getStrength() * attack.getAttackPower()) / (defender.getDefense() * 0.4));
     }
 
-    public void performAttack(){
+    public void performTurn(){
 
         Attack attackSelected = selectAttack();
         int damage = calculateDamage(attackSelected);
-
         defender.takeDamage(damage);
     }
 

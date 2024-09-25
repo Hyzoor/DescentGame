@@ -1,12 +1,13 @@
-//TODO
-    - Finish turn functionality: selection attack
-    - Implement dead methods, check and do something when killing an entity
+25/09:
+Set all constructors to public.
+Create a new package ( entitys ) for more organized project
+Implemented battle functions:
+    changeTurn - changes defender <-> attacker
+    start
 
+TODO:
+    -Implement a selection attack functionality
+    -Implement the whole battle till someone dies
+    -Start showing a windows with the attack buttons and entity's stats.
 
-//Changes made
-
-I moved the calculateDamage function from the entity class to the turn class,
-so turn class manages the whole turn in a battle: attack selection, calculateDamage, and then the defender takes the damage.
-
-Added a small test on main class.
 
