@@ -1,10 +1,12 @@
-package classes;
+package classes.entitys;
+import classes.Attack;
+
 import java.util.ArrayList;
 
 public class Rogue extends Player {
 
     //Constructor
-    Rogue(){
+    public Rogue(){
         super(20, 20, 70, new ArrayList<Attack>());
 
         attackList.add(new Attack("Payday", 4));
