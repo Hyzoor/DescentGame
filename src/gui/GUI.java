@@ -2,6 +2,7 @@ package gui;
 import classes.Battle;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class GUI extends JFrame{
 
@@ -11,10 +12,11 @@ public class GUI extends JFrame{
         mainFrame.setSize(800,600);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        mainFrame.add(new BattlePanel());
 
+        mainFrame.setLayout(new BorderLayout());
 
-//        mainFrame.setLayout(null);
+        mainFrame.add(new BattlePanel(), BorderLayout.SOUTH);
+
         mainFrame.setVisible(true);
 
     }

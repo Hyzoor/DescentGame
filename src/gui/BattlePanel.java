@@ -11,7 +11,7 @@ public class BattlePanel extends JPanel{
 
     public BattlePanel() {
 
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout(2,2,10,10));
 
         attackButton1 = new AttackButton(0);
         attackButton1.setBounds(100, 100, 180, 40);

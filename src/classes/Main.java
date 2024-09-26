@@ -12,8 +12,6 @@ public class Main {
 
 
         Knight knight1 = new Knight();
-//        Mage mage1 = new Mage();
-//        Rogue rogue1 = new Rogue();
         Enemy enemigo1 = new Enemy();
 
         Battle battle = new Battle(knight1, enemigo1);
