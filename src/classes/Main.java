@@ -2,9 +2,6 @@ package classes;
 
 import classes.entitys.Enemy;
 import classes.entitys.Knight;
-import classes.entitys.Mage;
-import classes.entitys.Rogue;
-import gui.BattlePanel;
 import gui.GUI;
 
 public class Main {

@@ -1,6 +1,6 @@
 package gui;
-import classes.Battle;
 
+import gui.panels.*;
 import javax.swing.*;
 import java.awt.*;
 

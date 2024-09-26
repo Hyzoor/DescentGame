@@ -1,7 +1,6 @@
 package classes;
 
 import classes.entitys.Enemy;
-import classes.entitys.Entity;
 import classes.entitys.Player;
 
 public class Battle {
@@ -40,11 +39,11 @@ public class Battle {
         return player.isDead() || enemy.isDead();
     }
 
-    public void performPlayerAttack(Entity target, int attackSelected){
+    public void performPlayerAttack(Enemy target, int attackSelected){
         player.performAttackTo(enemy, attackSelected);
     }
 
-    public void performEnemyAttack(Entity target){
+    public void performEnemyAttack(Player target){
         enemy.performAttackTo(player);
     }
 
