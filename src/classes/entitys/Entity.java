@@ -27,8 +27,9 @@ abstract public class Entity {
             return;
         }
 
-        health -= damage;
+        health -= (int) (damage / (defense * 0.4));
     }
+
 
     public boolean isDead(){
         return health <= 0;

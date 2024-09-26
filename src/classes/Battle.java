@@ -1,65 +1,69 @@
 package classes;
 
+import classes.entitys.Enemy;
 import classes.entitys.Entity;
+import classes.entitys.Player;
 
 public class Battle {
 
     //Attributes
-    private Entity player;
-    private Entity enemy;
-    private Turn turn;
+    public static Battle instance;
+    private Player player;
+    private Enemy enemy;
+    private boolean isPlayersTurn;
 
-    public Battle(Entity newPlayer, Entity newEnemy){
+
+    public Battle(Player newPlayer, Enemy newEnemy){
         setPlayer(newPlayer);
         setEnemy(newEnemy);
-        setTurn(new Turn(player, enemy));
+        isPlayersTurn = true;
+        instance = this;
     }
 
 
-
     //Methods
-    private void changeTurn(){
-
-        turn = new Turn(turn.getDefender(), turn.getAttacker());
+    private void rotate(){
+        isPlayersTurn = !isPlayersTurn;
     }
 
     public void start(){
 
-        while(!enemy.isDead() && !player.isDead()){
-
-            turn.performTurn();
-            changeTurn();
-        }
+//        while(!isBattleEnded()){
+//
+//
+//            rotate();
+//        }
 
     }
 
+    public boolean isBattleEnded(){
+        return player.isDead() || enemy.isDead();
+    }
 
+    public void performPlayerAttack(Entity target, int attackSelected){
+        player.performAttackTo(enemy, attackSelected);
+    }
 
-
+    public void performEnemyAttack(Entity target){
+        enemy.performAttackTo(player);
+    }
 
 
     //Setters and Getters
-    public void setPlayer(Entity newPlayer){
+    public void setPlayer(Player newPlayer){
         player = newPlayer;
     }
 
-    public void setEnemy(Entity newEnemy){
+    public void setEnemy(Enemy newEnemy){
         enemy = newEnemy;
     }
 
-    public void setTurn(Turn newTurn){
-        turn = newTurn;
-    }
-
-    public Entity getPlayer(){
+    public Player getPlayer(){
         return player;
     }
 
-    public Entity getEnemy(){
+    public Enemy getEnemy(){
         return enemy;
     }
 
-    public Turn getTurn(){
-        return turn;
-    }
 }

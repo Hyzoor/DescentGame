@@ -5,9 +5,14 @@ Implemented battle functions:
     changeTurn - changes defender <-> attacker
     start
 
+26/09:
+Organized whole classes
+Removed Turn class ( unnecessary )
+Battle class manages the whole battle and the turn changes
+Add a main frame with a battlepanel with the attack buttons that listens a perform the player attack.
+
 TODO:
-    -Implement a selection attack functionality
     -Implement the whole battle till someone dies
-    -Start showing a windows with the attack buttons and entity's stats.
+    -SHow on windows entitys stasts
 
 
