@@ -14,4 +14,10 @@ public abstract class Player extends Entity{
         gold = 0;
     }
 
+    public void performAttackTo(Entity target, int attackSelected) {
+
+        int damage = strength * attackList.get(attackSelected).getAttackPower();
+        target.takeDamage(damage);
+    }
+
 }
