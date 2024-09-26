@@ -4,20 +4,17 @@ import gui.panels.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class GUI extends JFrame{
+public class GUI extends JFrame {
 
-    public static void createFrame(){
-
+    public static void createFrame(BattlePanel battlePanel) {
         JFrame mainFrame = new JFrame("DESCENT GAME");
-        mainFrame.setSize(800,600);
+        mainFrame.setSize(800, 600);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setLayout(new BorderLayout());
 
 
-        mainFrame.add(new BattlePanel(), BorderLayout.SOUTH);
-
+        mainFrame.add(battlePanel, BorderLayout.CENTER);
 
         mainFrame.setVisible(true);
     }
-
 }
