@@ -9,9 +9,9 @@ public class Main {
 
 
         Knight knight1 = new Knight();
-        Enemy enemigo1 = new Enemy();
+        Enemy enemy1 = new Enemy();
 
-        Battle battle = new Battle(knight1, enemigo1);
+        Battle battle = new Battle(knight1, enemy1);
         battle.start();
 
 
