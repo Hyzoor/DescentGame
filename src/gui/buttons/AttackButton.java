@@ -9,11 +9,20 @@ public class AttackButton extends JButton implements ActionListener{
 
     private int numberOfAttackAssociated;
 
-    AttackButton(){}
+    public AttackButton(int newAttackAssociated){
+        numberOfAttackAssociated = newAttackAssociated;
+        super.setText(Battle.instance.getPlayer().getAttackList().get(numberOfAttackAssociated).getName());
+        this.addActionListener(this);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        System.out.print("Ataque: " + numberOfAttackAssociated);
+        System.out.println();
+        Battle.instance.performPlayerAttack(Battle.instance.getEnemy(), numberOfAttackAssociated);
+        Battle.instance.getEnemy().showHealth();
+        System.out.println();
 
     }
 }
