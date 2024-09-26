@@ -1,7 +1,7 @@
 package classes;
 import java.util.ArrayList;
 
-public class Knight extends Player {
+public class git sKnight extends Player {
 
     //Constructor
     Knight(){
