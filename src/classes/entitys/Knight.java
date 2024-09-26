@@ -3,7 +3,7 @@ import classes.Attack;
 
 import java.util.ArrayList;
 
-public class git sKnight extends Player {
+public class Knight extends Player {
 
     //Constructor
     public Knight(){
