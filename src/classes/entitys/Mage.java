@@ -1,10 +1,12 @@
-package classes;
+package classes.entitys;
+import classes.Attack;
+
 import java.util.ArrayList;
 
 public class Mage extends Player {
 
     //Constructor
-    Mage(){
+    public Mage(){
         super(35, 25, 55, new ArrayList<Attack>());
 
         attackList.add(new Attack("Ice Beam", 3));

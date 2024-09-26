@@ -1,4 +1,6 @@
-package classes;
+package classes.entitys;
+import classes.Attack;
+
 import java.util.List;
 
 abstract public class Entity {
@@ -10,7 +12,7 @@ abstract public class Entity {
     protected List<Attack> attackList;
 
 
-    Entity(int newHealth, int newStrength, int newDefense, List<Attack> newAttackList){
+    public Entity(int newHealth, int newStrength, int newDefense, List<Attack> newAttackList){
         setDefense(newDefense);
         setHealth(newHealth);
         setStrength(newStrength);
@@ -25,8 +27,9 @@ abstract public class Entity {
             return;
         }
 
-        health -= damage;
+        health -= (int) (damage / (defense * 0.4));
     }
+
 
     public boolean isDead(){
         return health <= 0;

@@ -5,7 +5,7 @@ public class Attack {
     private String name;
     private int attackPower;
 
-    Attack(String newName, int newAttackPower){
+    public Attack(String newName, int newAttackPower){
         setName(newName);
         setAttackPower(newAttackPower);
     }

@@ -1,10 +1,12 @@
-package classes;
+package classes.entitys;
+import classes.Attack;
+
 import java.util.ArrayList;
 
 public class git sKnight extends Player {
 
     //Constructor
-    Knight(){
+    public Knight(){
         super(50, 40, 20, new ArrayList<Attack>());
 
         attackList.add(new Attack("Sword Strike", 2));
@@ -15,7 +17,7 @@ public class git sKnight extends Player {
 
 
     public void showHealth(){
-        System.out.println("Knight ");
+        System.out.print("Knight ");
         super.showHealth();
         System.out.println();
 
