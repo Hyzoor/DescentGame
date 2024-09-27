@@ -1,6 +1,6 @@
 package classes.entitys;
-import classes.Attack;
 
+import classes.Attack;
 import java.util.List;
 
 abstract public class Entity {
@@ -35,12 +35,21 @@ abstract public class Entity {
         return health <= 0;
     }
 
+    public abstract String toString();
+
+    public void performAttackTo(Entity target, int attackSelected) {
+
+        int damage = strength * attackList.get(attackSelected).getPower();
+        target.takeDamage(damage);
+    }
+
     public void showHealth(){
-        System.out.print("health: " + getHealth());
+        System.out.println(this.toString() + " " + this.getHealth());
     }
 
 
-    //Setters and Getters
+
+//------------------ SETTERS AND GETTERS ------------------//
     public void setHealth(int newHealth){
         health = newHealth;
     }

@@ -3,11 +3,11 @@ package classes;
 public class Attack {
 
     private String name;
-    private int attackPower;
+    private int power;
 
-    public Attack(String newName, int newAttackPower){
+    public Attack(String newName, int newPower){
         setName(newName);
-        setAttackPower(newAttackPower);
+        setPower(newPower);
     }
 
     //Setters and Getters
@@ -15,15 +15,16 @@ public class Attack {
         name = newName;
     }
 
-    public void setAttackPower(int newAttackPower){
-        attackPower = newAttackPower;
+    public void setPower(int newPower){
+        power = newPower;
     }
 
     public String getName(){
         return name;
     }
 
-    public int getAttackPower(){
-        return attackPower;
+    public int getPower(){
+        return power;
+
     }
 }

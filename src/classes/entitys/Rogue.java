@@ -1,6 +1,6 @@
 package classes.entitys;
-import classes.Attack;
 
+import classes.Attack;
 import java.util.ArrayList;
 
 public class Rogue extends Player {
@@ -15,12 +15,8 @@ public class Rogue extends Player {
 
     }
 
-
-    public void showHealth(){
-        System.out.print("Rogue ");
-        super.showHealth();
-        System.out.println();
-
+    @Override
+    public String toString(){
+        return "ROGUE";
     }
-
 }
