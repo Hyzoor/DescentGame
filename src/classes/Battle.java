@@ -21,34 +21,31 @@ public class Battle {
 
 
     //Methods
-    private void rotate(){
-        isPlayersTurn = !isPlayersTurn;
-    }
-
     public void start(){
 
-//        while(!isBattleEnded()){
-//
-//
-//            rotate();
-//        }
+        // TODO -------------------------------------------------
 
+    }
+
+    public void rotate(){
+        isPlayersTurn = !isPlayersTurn;
     }
 
     public boolean isBattleEnded(){
         return player.isDead() || enemy.isDead();
     }
 
-    public void performPlayerAttack(Enemy target, int attackSelected){
+    public void performPlayerAttack(int attackSelected){
         player.performAttackTo(enemy, attackSelected);
     }
 
-    public void performEnemyAttack(Player target){
+    public void performEnemyAttack(){
         enemy.performAttackTo(player);
     }
 
 
-    //Setters and Getters
+//------------------ SETTERS AND GETTERS ------------------//
+
     public void setPlayer(Player newPlayer){
         player = newPlayer;
     }
