@@ -1,5 +1,4 @@
-package classes;
-
+import classes.Battle;
 import classes.entitys.Enemy;
 import classes.entitys.Knight;
 import gui.GUI;
