@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class BattleLogPanel extends JPanel {
 
-    BattleLogPanel(){
+    public BattleLogPanel(){
         this.setLayout(new BorderLayout());
 
 //        JTextPane logText = new JTextPane();
@@ -15,4 +15,6 @@ public class BattleLogPanel extends JPanel {
 
         this.add(logText, BorderLayout.CENTER);
     }
+
+
 }

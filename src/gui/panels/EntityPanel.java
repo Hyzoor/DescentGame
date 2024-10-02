@@ -1,31 +1,28 @@
-package gui.panels.BattlePanels;
+package gui.panels;
 
 import classes.entitys.Entity;
+
 import javax.swing.*;
 
-public class EntityPanel extends JPanel{
+public class EntityPanel extends JPanel {
 
-    Entity entity;
+    private Entity entity;
 
-    public EntityPanel(Entity newEntity){
+    public EntityPanel(Entity newEntity) {
 
         entity = newEntity;
-        this.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JLabel entityLabel = new JLabel(getEntityImage());
-
-
-
-
 
         this.add(entityLabel);
     }
 
-    private ImageIcon getEntityImage(){
+    private ImageIcon getEntityImage() {
 
         ImageIcon entityImage = new ImageIcon();
 
-        switch(entity.toString()){
+        switch (entity.toString()) {
 
             case "KNIGHT":
                 return new ImageIcon("src/images/knight.png");
@@ -35,10 +32,11 @@ public class EntityPanel extends JPanel{
 
             case "ROGUE":
                 return new ImageIcon("src/images/rogue.png");
-
+            case "ENEMY":
+                return new ImageIcon("src/images/knight.png");
+                // TODO
         };
 
         return null;
     }
-
 }

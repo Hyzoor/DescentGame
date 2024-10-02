@@ -1,6 +1,8 @@
 package gui.buttons;
 
 import classes.Battle;
+import classes.Game;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -10,7 +12,7 @@ public class AttackButton extends JButton implements ActionListener{
 
     public AttackButton(int newAttackAssociated){
         attackAssociated = newAttackAssociated;
-        super.setText(Battle.instance.getPlayer().getAttackList().get(attackAssociated).getName());
+        super.setText(Game.instance.getBattle().getPlayer().getAttackList().get(attackAssociated).getName());
         this.addActionListener(this);
     }
 
@@ -19,9 +21,9 @@ public class AttackButton extends JButton implements ActionListener{
 
         System.out.print(super.getText());
         System.out.println();
-        Battle.instance.performPlayerAttack(attackAssociated);
+        Game.instance.getBattle().performPlayerAttack(attackAssociated);
 
-        Battle.instance.getEnemy().showHealth();
+        Game.instance.getBattle().getEnemy().showHealth();
         System.out.println();
 
     }

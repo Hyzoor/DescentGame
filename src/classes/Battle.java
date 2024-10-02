@@ -6,7 +6,6 @@ import classes.entitys.Player;
 public class Battle {
 
     //Attributes
-    public static Battle instance;
     private Player player;
     private Enemy enemy;
     private boolean isPlayersTurn;
@@ -16,7 +15,6 @@ public class Battle {
         setPlayer(newPlayer);
         setEnemy(newEnemy);
         isPlayersTurn = true;
-        instance = this;
     }
 
 

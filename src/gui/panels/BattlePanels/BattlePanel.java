@@ -1,6 +1,7 @@
 package gui.panels.BattlePanels;
 
-import classes.Battle;
+import classes.Game;
+import gui.panels.EntityPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,8 +21,8 @@ public class BattlePanel extends JPanel {
         JPanel northPanel = new JPanel();
         northPanel.setLayout(new GridLayout(1,2,30,30));
         northPanel.setBorder(BorderFactory.createEmptyBorder(40,40,40,40));
-        northPanel.add(new EntityPanel(Battle.instance.getPlayer()));
-        northPanel.add(new EntityPanel(Battle.instance.getPlayer()));
+        northPanel.add(new EntityPanel(Game.instance.getBattle().getPlayer()));
+        northPanel.add(new EntityPanel(Game.instance.getBattle().getEnemy()));
 
 
         this.add(southPanel, BorderLayout.SOUTH);

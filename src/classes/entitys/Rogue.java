@@ -12,6 +12,7 @@ public class Rogue extends Player {
         attackList.add(new Attack("Payday", 4));
         attackList.add(new Attack("Lethal Knife", 8));
         attackList.add(new Attack("Stealth", 1));
+        attackList.add(new Attack("Default ATTACK", 2));
 
     }
 
