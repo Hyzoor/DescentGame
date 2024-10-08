@@ -1,32 +1,33 @@
 package gui.buttons;
 
-import classes.Battle;
-import classes.Game;
-import classes.entitys.Enemy;
-import classes.entitys.Player;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import classes.Battle;
+import classes.Game;
+import classes.entities.Enemy;
+import classes.entities.Player;
 
 public class SelectClassButton extends JButton implements ActionListener {
 
     Player classToSelect;
 
-    public SelectClassButton(Player newClassToSelect){
+    //Constructor
+    public SelectClassButton(Player newClassToSelect) {
         classToSelect = newClassToSelect;
-        this.setText("SELECT " + classToSelect.toString());
+        this.setText("Select " + classToSelect.toString());
         this.addActionListener(this);
     }
 
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
 
         Game.instance.setPlayer(classToSelect);
-        Game.instance.setBattle(new Battle(classToSelect, new Enemy()));
+
+        //TODO BIEN
+        Game.instance.setBattle(new Battle(classToSelect, new Enemy("Default")));
         Game.instance.getMainFrame().changeToBattlePanel();
-
-
         //TODO BIEN
     }
 }

@@ -2,29 +2,31 @@ package classes;
 
 public class Attack {
 
+    //Attributes
     private String name;
     private int power;
 
-    public Attack(String newName, int newPower){
+    //Constructor
+    public Attack(String newName, int newPower) {
         setName(newName);
         setPower(newPower);
     }
 
-    //Setters and Getters
-    public void setName(String newName){
+//------------------ SETTERS AND GETTERS ------------------//
+
+    public void setName(String newName) {
         name = newName;
     }
 
-    public void setPower(int newPower){
+    public void setPower(int newPower) {
         power = newPower;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getPower(){
+    public int getPower() {
         return power;
-
     }
 }

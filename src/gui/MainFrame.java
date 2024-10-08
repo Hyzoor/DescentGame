@@ -1,16 +1,18 @@
 package gui;
 
-import gui.panels.BattlePanels.BattlePanel;
-import gui.panels.ClassSelectionPanels.ClassSelectionPanel;
-
 import javax.swing.*;
 import java.awt.*;
 
+import gui.panels.MainPanels.BattlePanel;
+import gui.panels.MainPanels.PlayerSelectionPanel;
+
 public class MainFrame extends JFrame {
 
-    private ClassSelectionPanel classSelectionPanel = new ClassSelectionPanel();
+    //Attributes - Panels
+    private final PlayerSelectionPanel playerSelectionPanel = new PlayerSelectionPanel();
     private BattlePanel battlePanel;
 
+    //Constructor
     public MainFrame() {
 
         this.setTitle("The Descent - RogueLike Game");
@@ -19,21 +21,24 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
 
-
-
-        this.add(classSelectionPanel, BorderLayout.CENTER);
-
+        this.add(playerSelectionPanel, BorderLayout.CENTER);
 
         this.setVisible(true);
     }
 
-
-    public void changeToBattlePanel(){
-        this.remove(classSelectionPanel);
+    //Methods
+    public void changeToBattlePanel() {
+        this.remove(playerSelectionPanel);
         battlePanel = new BattlePanel();
         this.add(battlePanel);
         this.repaint();
         this.revalidate();
+    }
+
+
+    //Setters and Getters
+    public BattlePanel getBattlePanel() {
+        return battlePanel;
     }
 }
 
