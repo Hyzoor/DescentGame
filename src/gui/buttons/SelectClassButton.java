@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import classes.Battle;
 import classes.Game;
+import classes.PanelManager;
 import classes.entities.Enemy;
 import classes.entities.Player;
 
@@ -27,7 +28,7 @@ public class SelectClassButton extends JButton implements ActionListener {
 
         //TODO BIEN
         Game.instance.setBattle(new Battle(classToSelect, new Enemy("Default")));
-        Game.instance.getMainFrame().changeToBattlePanel();
+        PanelManager.changeToBattlePanel();
         //TODO BIEN
     }
 }

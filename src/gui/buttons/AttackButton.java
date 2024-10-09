@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 import classes.Game;
+import classes.PanelManager;
 
 
 public class AttackButton extends JButton implements ActionListener {
@@ -21,7 +22,7 @@ public class AttackButton extends JButton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Game.instance.getBattle().performPlayerAttack(attackAssociated);
 
-        Game.instance.getMainFrame().getBattlePanel().addText(
+        PanelManager.getBattlePanel().addText(
                 String.format("%s has used %s. %s health: %d",
                         Game.instance.getBattle().getPlayer().toString(),
                         Game.instance.getBattle().getPlayer().getAttackList().get(attackAssociated).getName(),

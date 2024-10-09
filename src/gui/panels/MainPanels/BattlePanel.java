@@ -21,7 +21,7 @@ public class BattlePanel extends JPanel {
         this.setLayout(new GridLayout(2, 1, 10, 10));
 
         initializeTextArea();
-        initializePanels();
+        initializePanel();
 
         this.add(northPanel);
         this.add(southPanel);
@@ -43,7 +43,7 @@ public class BattlePanel extends JPanel {
         battleTextArea.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
-    private void initializePanels() {
+    private void initializePanel() {
         JScrollPane battleTextPane = new JScrollPane(battleTextArea);
         battleTextPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         battleTextPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);

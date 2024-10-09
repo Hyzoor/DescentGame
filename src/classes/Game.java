@@ -12,8 +12,8 @@ public class Game {
     public static Game instance;
 
     public Game() {
-        mainFrame = new MainFrame();
         instance = this;    //Singleton
+        mainFrame = new MainFrame();
     }
 
 
