@@ -20,12 +20,12 @@ public class TitleScreen extends JPanel {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); // Centrar el botón
 
-        // Cargar y escalar la imagen
+
         ImageIcon originalIcon = new ImageIcon("src/resources/images/Play.png");
         Image scaledImage = originalIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-        // Botón de Play
+
         JButton playButton = new JButton(scaledIcon);
         playButton.setBorderPainted(false);
         playButton.setContentAreaFilled(false);

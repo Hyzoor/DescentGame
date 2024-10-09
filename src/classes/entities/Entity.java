@@ -32,8 +32,9 @@ abstract public class Entity {
         if (isDead()) {
             return;
         }
+        int newHealth = getHealth() - (int) (damage / (getDefense() * 0.4));
+        setHealth(Math.max(newHealth, 0));
 
-        setHealth(getHealth() - (int) (damage / (getDefense() * 0.4)));
     }
 
     public boolean isDead() {
