@@ -7,13 +7,14 @@ public class PanelManager {
     //Attributes - Panels
     private final static TitleScreenPanel titleScreenPanel;
     private final static PlayerSelectionPanel playerSelectionPanel;
-    private static BattlePanel battlePanel;
+    private final static BattlePanel battlePanel;
 
 
     static {
 
         titleScreenPanel = new TitleScreenPanel();
         playerSelectionPanel = new PlayerSelectionPanel();
+        battlePanel = new BattlePanel();
 
     }
 
@@ -35,8 +36,7 @@ public class PanelManager {
 
     public static void changeToBattlePanel() {
         Game.instance.getMainFrame().getContentPane().removeAll();
-        Game.instance.createBattle();
-        battlePanel = new BattlePanel();
+        PanelManager.battlePanel.updatePanel();
         Game.instance.getMainFrame().add(battlePanel);
         Game.instance.getMainFrame().repaint();
         Game.instance.getMainFrame().revalidate();

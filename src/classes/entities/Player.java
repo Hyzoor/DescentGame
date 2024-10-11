@@ -7,6 +7,8 @@ import classes.Attack;
 
 public class Player extends Entity {
 
+    //Attributes
+    private int maxHealth;
 
     //Constructor
     public Player(String newIdentifier) {
@@ -16,12 +18,17 @@ public class Player extends Entity {
 
 
     //Methods
+    public void restoreHealth(){
+        setHealth(maxHealth);
+    }
+
     private void createPlayer() {
 
         switch (this.getIdentifier().toUpperCase()) {
 
             case "KNIGHT":
-                setHealth(50);
+                maxHealth = 50;
+                setHealth(maxHealth);
                 setStrength(20);
                 setDefense(30);
                 attackList.add(new Attack("Sword Strike", 2));
@@ -31,7 +38,8 @@ public class Player extends Entity {
                 break;
 
             case "MAGE":
-                setHealth(45);
+                maxHealth = 45;
+                setHealth(maxHealth);
                 setStrength(30);
                 setDefense(25);
                 attackList.add(new Attack("Ice Beam", 3));
@@ -41,7 +49,8 @@ public class Player extends Entity {
                 break;
 
             case "ROGUE":
-                setHealth(40);
+                maxHealth = 40;
+                setHealth(maxHealth);
                 setStrength(40);
                 setDefense(20);
                 attackList.add(new Attack("Payday", 4));

@@ -29,7 +29,12 @@ public class Battle {
         timer.stop();
         PanelManager.getBattlePanel().enablePlayerButtons(false);
         showResults();
-        // TODO More things
+
+        //Prueba para hacer batallas consecutivas
+//        player.restoreHealth();
+//        Game.instance.createBattle();
+//        PanelManager.changeToBattlePanel();
+        ///////////////////////////////////////////////
     }
 
     public void rotate() {

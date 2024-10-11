@@ -22,6 +22,7 @@ public class SelectClassButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Game.instance.setPlayer(classToSelect);
+        Game.instance.createBattle();
         PanelManager.changeToBattlePanel();
     }
 }

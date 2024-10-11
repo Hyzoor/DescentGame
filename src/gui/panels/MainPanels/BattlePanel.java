@@ -11,7 +11,7 @@ public class BattlePanel extends JPanel {
 
     //Attributes - Components
     private final JTextArea battleTextArea = new JTextArea();
-    private final AttackButtonsPanel attackButtonsPanel = new AttackButtonsPanel();
+    private AttackButtonsPanel attackButtonsPanel;
     private final JPanel southPanel = new JPanel();
     private final JPanel northPanel = new JPanel();
 
@@ -21,11 +21,7 @@ public class BattlePanel extends JPanel {
 
         this.setLayout(new GridLayout(2, 1, 10, 10));
 
-        initializeTextArea();
         initializePanel();
-
-        this.add(northPanel);
-        this.add(southPanel);
     }
 
 
@@ -44,31 +40,35 @@ public class BattlePanel extends JPanel {
 
 
     //Methods for constructor
-    private void initializeTextArea() {
+    private void initializePanel() {
         battleTextArea.setEditable(false);
         battleTextArea.setCaretPosition(battleTextArea.getDocument().getLength());
         battleTextArea.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        northPanel.setLayout(new GridLayout(1, 2, 30, 30));
+        northPanel.setBorder(BorderFactory.createEmptyBorder(40, 20, 20, 20));
+
+        southPanel.setLayout(new GridLayout(2, 1, 20, 20));
+        southPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
     }
 
-    private void initializePanel() {
+    public void updatePanel() {
+
+        this.southPanel.removeAll();
+        this.northPanel.removeAll();
+
         JScrollPane battleTextPane = new JScrollPane(battleTextArea);
         battleTextPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         battleTextPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        southPanel.setLayout(new GridLayout(2, 1, 20, 20));
-        southPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         southPanel.add(battleTextPane);
-        southPanel.add(attackButtonsPanel);
+        southPanel.add(attackButtonsPanel = new AttackButtonsPanel());
 
-        northPanel.setLayout(new GridLayout(1, 2, 30, 30));
-        northPanel.setBorder(BorderFactory.createEmptyBorder(40, 20, 20, 20));
-        updateBattleEntities();
-    }
-
-    private void updateBattleEntities(){
-        northPanel.removeAll();
         northPanel.add(new EntityPanel(Game.instance.getBattle().getPlayer()));
         northPanel.add(new EntityPanel(Game.instance.getBattle().getEnemy()));
+
+        this.add(northPanel);
+        this.add(southPanel);
     }
 
 

@@ -9,12 +9,12 @@ public class TitleScreenPanel extends JPanel {
 
     public TitleScreenPanel() {
 
-        JLabel titleLabel = new JLabel("The Descent", SwingConstants.CENTER);
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        JLabel titleLabel = new JLabel();
+        titleLabel.setIcon(new ImageIcon("src/resources/images/title.png"));
 
         this.setLayout(new BorderLayout());
-        this.add(titleLabel, BorderLayout.NORTH);
-        this.add(new TitleScreenStartButton(), BorderLayout.CENTER);
+        this.add(titleLabel, BorderLayout.CENTER);
+        this.add(new TitleScreenStartButton(), BorderLayout.SOUTH);
 
     }
 }
