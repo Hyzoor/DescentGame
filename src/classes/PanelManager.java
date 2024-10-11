@@ -2,6 +2,8 @@ package classes;
 
 import gui.panels.MainPanels.*;
 
+import java.awt.*;
+
 public class PanelManager {
 
     //Attributes - Panels

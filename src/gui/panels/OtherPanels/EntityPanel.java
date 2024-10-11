@@ -15,7 +15,7 @@ public class EntityPanel extends JPanel {
         entity = newEntity;
 
         this.setLayout(new BorderLayout());
-        this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+//        this.setBorder(BorderFactory.createEmptyBorder(20, 20, 0, 20));
 
         JLabel entityImage = new JLabel(getEntityImage());
 

@@ -37,6 +37,7 @@ public class Game {
 
     public void setBattle(Battle newBattle) {
         battle = newBattle;
+        battle.start();
     }
 }
 

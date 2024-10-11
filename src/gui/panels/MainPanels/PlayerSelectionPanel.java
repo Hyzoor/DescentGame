@@ -10,7 +10,7 @@ public class PlayerSelectionPanel extends JPanel {
 
     public PlayerSelectionPanel() {
 
-        this.setLayout(new GridLayout(1, 3, 20, 20));
+        this.setLayout(new GridLayout(1, 3, 10, 10));
 
         this.add(new PlayerOptionPanel(new Player("Rogue")));
         this.add(new PlayerOptionPanel(new Player("Mage")));

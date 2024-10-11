@@ -20,8 +20,11 @@ public class AttackButton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         Game.instance.getBattle().performPlayerAttack(attackAssociated);
 
+        PanelManager.getBattlePanel().enablePlayerButtons(false);
+        PanelManager.getBattlePanel().clearText();
         PanelManager.getBattlePanel().addText(
                 String.format("%s has used %s. %s health: %d",
                         Game.instance.getBattle().getPlayer().toString(),
@@ -30,5 +33,7 @@ public class AttackButton extends JButton implements ActionListener {
                         Game.instance.getBattle().getEnemy().getHealth()
                 )
         );
+
+        Game.instance.getBattle().rotate();
     }
 }

@@ -11,6 +11,7 @@ public class BattlePanel extends JPanel {
 
     //Attributes - Components
     private final JTextArea battleTextArea = new JTextArea();
+    private final AttackButtonsPanel attackButtonsPanel = new AttackButtonsPanel();
     private final JPanel southPanel = new JPanel();
     private final JPanel northPanel = new JPanel();
 
@@ -37,6 +38,12 @@ public class BattlePanel extends JPanel {
         this.battleTextArea.setText("");
     }
 
+    public void enablePlayerButtons(boolean option){
+        attackButtonsPanel.enableButtons(option);
+    }
+
+
+    //Methods for constructor
     private void initializeTextArea() {
         battleTextArea.setEditable(false);
         battleTextArea.setCaretPosition(battleTextArea.getDocument().getLength());
@@ -51,11 +58,22 @@ public class BattlePanel extends JPanel {
         southPanel.setLayout(new GridLayout(2, 1, 20, 20));
         southPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         southPanel.add(battleTextPane);
-        southPanel.add(new AttackButtonsPanel());
+        southPanel.add(attackButtonsPanel);
 
         northPanel.setLayout(new GridLayout(1, 2, 30, 30));
         northPanel.setBorder(BorderFactory.createEmptyBorder(40, 20, 20, 20));
         northPanel.add(new EntityPanel(Game.instance.getBattle().getPlayer()));
         northPanel.add(new EntityPanel(Game.instance.getBattle().getEnemy()));
     }
+
+//------------------ SETTERS AND GETTERS ------------------//
+    public JPanel getSouthPanel(){
+        return southPanel;
+    }
+
+    public JPanel getNorthPanel(){
+        return northPanel;
+    }
+
+
 }

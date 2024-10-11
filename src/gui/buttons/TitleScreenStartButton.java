@@ -23,6 +23,7 @@ public class TitleScreenStartButton extends JButton implements ActionListener {
         this.setContentAreaFilled(false);
         this.setFocusPainted(false);
 
+        //TODO refactor reformat etc
         ImageIcon originalIcon = new ImageIcon("src/resources/images/Play.png");
         Image scaledImage = originalIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);

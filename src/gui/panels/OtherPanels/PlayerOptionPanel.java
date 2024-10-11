@@ -11,11 +11,12 @@ public class PlayerOptionPanel extends JPanel {
     public PlayerOptionPanel(Player classOption) {
 
         JPanel buttonSelectClass = new JPanel();
+        buttonSelectClass.setLayout(new GridLayout(2,1));
         buttonSelectClass.add(new SelectClassButton(classOption));
-        buttonSelectClass.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        buttonSelectClass.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10 ));
 
         this.setLayout(new BorderLayout());
-        this.add(buttonSelectClass, BorderLayout.SOUTH);
         this.add(new EntityPanel(classOption), BorderLayout.CENTER);
+        this.add((buttonSelectClass), BorderLayout.SOUTH);
     }
 }

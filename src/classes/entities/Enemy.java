@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import classes.Attack;
+import classes.Game;
+import classes.PanelManager;
 
 public class Enemy extends Entity {
 
@@ -32,7 +34,17 @@ public class Enemy extends Entity {
 
     public void performAttackTo(Entity target) {
         //TODO attack selection logic
-        super.performAttackTo(target, 0);
+        int attack = 0;
+        super.performAttackTo(target, attack);
+
+        PanelManager.getBattlePanel().addText(
+                String.format("%s has used %s. %s health: %d",
+                        Game.instance.getBattle().getEnemy().toString(),
+                        Game.instance.getBattle().getEnemy().getAttackList().get(attack).getName(),
+                        Game.instance.getBattle().getPlayer().toString(),
+                        Game.instance.getBattle().getPlayer().getHealth()
+                )
+        );
     }
 
 }
