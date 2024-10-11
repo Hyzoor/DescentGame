@@ -20,10 +20,13 @@ public class Enemy extends Entity {
         switch (this.getIdentifier().toUpperCase()) {
 
             case "DEFAULT":
-                setHealth(100);
+                setHealth(60);
                 setStrength(20);
                 setDefense(30);
-                attackList.add(new Attack("Default Enemy Attack", 2));
+                attackList.add(new Attack("Default Enemy Attack 1", 2));
+                attackList.add(new Attack("Default Enemy Attack 2", 3));
+                attackList.add(new Attack("Default Enemy Attack 3", 4));
+                attackList.add(new Attack("Default Enemy Attack 4", 5));
                 break;
 
             case "SKELETON":
@@ -33,8 +36,8 @@ public class Enemy extends Entity {
     }
 
     public void performAttackTo(Entity target) {
-        //TODO attack selection logic
-        int attack = 0;
+
+        int attack = attackSelector();
         super.performAttackTo(target, attack);
 
         PanelManager.getBattlePanel().addText(
@@ -47,4 +50,7 @@ public class Enemy extends Entity {
         );
     }
 
+    private int attackSelector() {
+        return (int) (Math.random() * attackList.size());
+    }
 }

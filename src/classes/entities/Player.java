@@ -23,7 +23,7 @@ public class Player extends Entity {
             case "KNIGHT":
                 setHealth(50);
                 setStrength(20);
-                setDefense(40);
+                setDefense(30);
                 attackList.add(new Attack("Sword Strike", 2));
                 attackList.add(new Attack("Drain Mace", 5));
                 attackList.add(new Attack("Shield Reduction", 1));
@@ -31,8 +31,8 @@ public class Player extends Entity {
                 break;
 
             case "MAGE":
-                setHealth(35);
-                setStrength(55);
+                setHealth(45);
+                setStrength(30);
                 setDefense(25);
                 attackList.add(new Attack("Ice Beam", 3));
                 attackList.add(new Attack("Thunder", 7));
@@ -41,8 +41,8 @@ public class Player extends Entity {
                 break;
 
             case "ROGUE":
-                setHealth(20);
-                setStrength(70);
+                setHealth(40);
+                setStrength(40);
                 setDefense(20);
                 attackList.add(new Attack("Payday", 4));
                 attackList.add(new Attack("Lethal Knife", 8));

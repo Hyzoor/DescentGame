@@ -1,14 +1,11 @@
 package classes;
 
 import javax.swing.Timer;
-
-import classes.entities.Enemy;
-import classes.entities.Player;
-
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import classes.entities.Enemy;
+import classes.entities.Player;
 
 public class Battle {
 
@@ -23,15 +20,12 @@ public class Battle {
         setPlayer(newPlayer);
         setEnemy(newEnemy);
         isPlayersTurn = true;
+        initializeTimer();
     }
 
 
     //Methods
-    public void start() {
-        initializeTimer();
-    }
-
-    public void end(){
+    public void endBattle() {
         timer.stop();
         PanelManager.getBattlePanel().enablePlayerButtons(false);
         showResults();
@@ -39,8 +33,8 @@ public class Battle {
     }
 
     public void rotate() {
-        if (isAnyoneDead()){
-            end();
+        if (isAnyoneDead()) {
+            endBattle();
             return;
         }
         isPlayersTurn = !isPlayersTurn;
@@ -50,32 +44,24 @@ public class Battle {
         return player.isDead() || enemy.isDead();
     }
 
-    public void performPlayerAttack(int attackSelected) {
-        player.performAttackTo(enemy, attackSelected);
-    }
-
-    public void performEnemyAttack() {
-        enemy.performAttackTo(player);
-    }
-
-    public void showResults(){
+    public void showResults() {
         String result;
-        if(player.isDead()){
+        if (player.isDead()) {
             result = enemy.toString() + " has defeated you ...";
-        }else{
+        } else {
             result = "You have defeated " + enemy.toString() + " ! Good job !";
         }
 
         PanelManager.getBattlePanel().addText(result);
     }
 
-    private void initializeTimer(){
+    private void initializeTimer() {
 
         timer = new Timer(2000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!isPlayersTurn){
-                    performEnemyAttack();
+                if (!isPlayersTurn) {
+                    enemy.performAttackTo(player);
                     rotate();
                     PanelManager.getBattlePanel().enablePlayerButtons(true);
                 }

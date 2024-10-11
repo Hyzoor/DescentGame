@@ -1,5 +1,6 @@
 package classes;
 
+import classes.entities.Enemy;
 import classes.entities.Player;
 import gui.MainFrame;
 
@@ -16,6 +17,10 @@ public class Game {
         mainFrame = new MainFrame();
     }
 
+    //Methods
+    public void createBattle(){
+        battle = new Battle(player, new Enemy("default"));
+    }
 
 //------------------ SETTERS AND GETTERS ------------------//
 
@@ -37,7 +42,6 @@ public class Game {
 
     public void setBattle(Battle newBattle) {
         battle = newBattle;
-        battle.start();
     }
 }
 

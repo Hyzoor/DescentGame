@@ -41,10 +41,6 @@ abstract public class Entity {
         return getHealth() <= 0;
     }
 
-    public void showHealth() {
-        System.out.println(this.getIdentifier() + " " + this.getHealth());
-    }
-
     @Override
     public String toString() {
         return getIdentifier();

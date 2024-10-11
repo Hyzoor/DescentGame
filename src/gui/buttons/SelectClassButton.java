@@ -4,10 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import classes.Battle;
 import classes.Game;
 import classes.PanelManager;
-import classes.entities.Enemy;
 import classes.entities.Player;
 
 public class SelectClassButton extends JButton implements ActionListener {
@@ -23,12 +21,7 @@ public class SelectClassButton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         Game.instance.setPlayer(classToSelect);
-
-        //TODO BIEN
-        Game.instance.setBattle(new Battle(classToSelect, new Enemy("Default")));
         PanelManager.changeToBattlePanel();
-        //TODO BIEN
     }
 }

@@ -2,8 +2,6 @@ package classes;
 
 import gui.panels.MainPanels.*;
 
-import java.awt.*;
-
 public class PanelManager {
 
     //Attributes - Panels
@@ -37,6 +35,7 @@ public class PanelManager {
 
     public static void changeToBattlePanel() {
         Game.instance.getMainFrame().getContentPane().removeAll();
+        Game.instance.createBattle();
         battlePanel = new BattlePanel();
         Game.instance.getMainFrame().add(battlePanel);
         Game.instance.getMainFrame().repaint();

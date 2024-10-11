@@ -62,17 +62,13 @@ public class BattlePanel extends JPanel {
 
         northPanel.setLayout(new GridLayout(1, 2, 30, 30));
         northPanel.setBorder(BorderFactory.createEmptyBorder(40, 20, 20, 20));
+        updateBattleEntities();
+    }
+
+    private void updateBattleEntities(){
+        northPanel.removeAll();
         northPanel.add(new EntityPanel(Game.instance.getBattle().getPlayer()));
         northPanel.add(new EntityPanel(Game.instance.getBattle().getEnemy()));
-    }
-
-//------------------ SETTERS AND GETTERS ------------------//
-    public JPanel getSouthPanel(){
-        return southPanel;
-    }
-
-    public JPanel getNorthPanel(){
-        return northPanel;
     }
 
 
