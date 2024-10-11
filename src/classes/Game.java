@@ -1,6 +1,5 @@
 package classes;
 
-import classes.entities.Enemy;
 import classes.entities.Player;
 import gui.MainFrame;
 
@@ -19,7 +18,7 @@ public class Game {
 
     //Methods
     public void createBattle(){
-        battle = new Battle(player, new Enemy("default"));
+        battle = new Battle(player, EnemyFactory.createRandomEnemy());
     }
 
 //------------------ SETTERS AND GETTERS ------------------//
