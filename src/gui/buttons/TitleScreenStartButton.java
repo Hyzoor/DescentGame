@@ -28,6 +28,6 @@ public class TitleScreenStartButton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        PanelManager.changeToClassSelectionPanel();
+        PanelManager.changeToPlayerSelectionPanel();
     }
 }

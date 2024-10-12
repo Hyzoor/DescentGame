@@ -20,7 +20,7 @@ public class PanelManager {
 
 
     //Methods
-    public static void changeToClassSelectionPanel() {
+    public static void changeToPlayerSelectionPanel() {
         Game.instance.getMainFrame().getContentPane().removeAll();
         Game.instance.getMainFrame().add(playerSelectionPanel);
         Game.instance.getMainFrame().repaint();
