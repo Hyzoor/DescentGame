@@ -5,6 +5,7 @@ import java.awt.*;
 
 import classes.Game;
 import gui.panels.OtherPanels.AttackButtonsPanel;
+import gui.panels.OtherPanels.ButtonsAfterWinPanel;
 import gui.panels.OtherPanels.EntityPanel;
 
 public class BattlePanel extends JPanel {
@@ -12,15 +13,14 @@ public class BattlePanel extends JPanel {
     //Attributes - Components
     private final JTextArea battleTextArea = new JTextArea();
     private AttackButtonsPanel attackButtonsPanel;
+    private final ButtonsAfterWinPanel buttonsAfterWinPanel = new ButtonsAfterWinPanel();
     private final JPanel southPanel = new JPanel();
     private final JPanel northPanel = new JPanel();
 
 
     //Constructor
     public BattlePanel() {
-
         this.setLayout(new GridLayout(2, 1, 10, 10));
-
         initializePanel();
     }
 
@@ -38,6 +38,13 @@ public class BattlePanel extends JPanel {
         attackButtonsPanel.enableButtons(option);
     }
 
+    public void addButtonsAfterWin(){
+        buttonsAfterWinPanel.enablePowerUpButtons(true);
+        southPanel.remove(attackButtonsPanel);
+        southPanel.add(buttonsAfterWinPanel);
+        this.repaint();
+        this.revalidate();
+    }
 
     //Methods for constructor
     private void initializePanel() {
@@ -69,7 +76,14 @@ public class BattlePanel extends JPanel {
 
         this.add(northPanel);
         this.add(southPanel);
+        this.repaint();
+        this.revalidate();
     }
 
+    //------------------ GETTERS ------------------//
+
+    public ButtonsAfterWinPanel getButtonsAfterWinPanel(){
+        return buttonsAfterWinPanel;
+    }
 
 }

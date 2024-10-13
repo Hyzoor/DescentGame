@@ -28,7 +28,9 @@ public class EntityPanel extends JPanel {
             case "KNIGHT" -> new ImageIcon("src/resources/images/knight.png");
             case "MAGE" -> new ImageIcon("src/resources/images/mage.png");
             case "ROGUE" -> new ImageIcon("src/resources/images/rogue.png");
-            case "DEFAULT" -> new ImageIcon("src/resources/images/knight.png");
+            //TODO images for enemies
+            case "GOBLIM" -> new ImageIcon("src/resources/images/rogue.png");
+            case "SKELETON" -> new ImageIcon("src/resources/images/rogue.png");
 
             default -> null;
         };

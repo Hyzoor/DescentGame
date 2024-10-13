@@ -29,6 +29,7 @@ public class Battle {
         timer.stop();
         PanelManager.getBattlePanel().enablePlayerButtons(false);
         showResults();
+        PanelManager.getBattlePanel().addButtonsAfterWin();
 
         //Prueba para hacer batallas consecutivas
 //        player.restoreHealth();

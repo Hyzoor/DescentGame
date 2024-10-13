@@ -41,6 +41,10 @@ abstract public class Entity {
         return getHealth() <= 0;
     }
 
+    public void increaseStat(String stat, int value){
+        this.stats.put(stat, this.stats.get(stat) + value); //Actual value + value
+    }
+
     @Override
     public String toString() {
         return getIdentifier();

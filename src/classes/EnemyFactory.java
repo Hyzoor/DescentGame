@@ -10,8 +10,8 @@ public class EnemyFactory {
     private final static List<String> enemyList = new ArrayList<>();
 
     static {
-        enemyList.add("Default");
-        enemyList.add("Default");
+        enemyList.add("Skeleton");
+        enemyList.add("Goblin");
     }
 
 

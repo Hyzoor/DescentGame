@@ -19,17 +19,24 @@ public class Enemy extends Entity {
 
         switch (this.getIdentifier().toUpperCase()) {
 
-            case "DEFAULT":
-                setHealth(60);
-                setStrength(20);
-                setDefense(30);
+            case "SKELETON":
+                setHealth(40);
+                setStrength(15);
+                setDefense(25);
                 attackList.add(new Attack("Default Enemy Attack 1", 2));
                 attackList.add(new Attack("Default Enemy Attack 2", 3));
                 attackList.add(new Attack("Default Enemy Attack 3", 4));
                 attackList.add(new Attack("Default Enemy Attack 4", 5));
                 break;
 
-            case "SKELETON":
+            case "GOBLIN":
+                setHealth(30);
+                setStrength(20);
+                setDefense(20);
+                attackList.add(new Attack("Default Enemy Attack 1", 2));
+                attackList.add(new Attack("Default Enemy Attack 2", 3));
+                attackList.add(new Attack("Default Enemy Attack 3", 4));
+                attackList.add(new Attack("Default Enemy Attack 4", 5));
                 break;
 
         }
