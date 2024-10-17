@@ -1,0 +1,29 @@
+{
+  "identifier": "mage",
+
+  "stats": {
+    "max_health": 45,
+    "health": 45,
+    "strength": 35,
+    "defense": 25
+  },
+
+  "attackList": [
+    {
+      "name": "Ice Beam",
+      "power": 3
+    },
+    {
+      "name": "Thunder",
+      "power": 7
+    },
+    {
+      "name": "Magic Shield",
+      "power": 1
+    },
+    {
+      "name": "Attack number 4",
+      "power": 1
+    }
+  ]
+}

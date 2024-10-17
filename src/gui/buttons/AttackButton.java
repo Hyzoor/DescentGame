@@ -30,7 +30,7 @@ public class AttackButton extends JButton implements ActionListener {
                         Game.instance.getBattle().getPlayer().toString(),
                         Game.instance.getBattle().getPlayer().getAttackList().get(attackAssociated).getName(),
                         Game.instance.getBattle().getEnemy().toString(),
-                        Game.instance.getBattle().getEnemy().getHealth()
+                        Game.instance.getBattle().getEnemy().getStatValue("health")
                 )
         );
 

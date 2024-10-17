@@ -3,7 +3,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 
-import classes.entities.Enemy;
+import classes.characters.Enemy;
 
 public class EnemyFactory {
 

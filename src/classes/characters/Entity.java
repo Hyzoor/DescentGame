@@ -1,9 +1,7 @@
-package classes.entities;
+package classes.characters;
 
 import java.util.List;
 import java.util.Map;
-
-import classes.Attack;
 
 abstract public class Entity {
 
@@ -21,28 +19,33 @@ abstract public class Entity {
         setAttackList(newAttackList);
     }
 
+    public Entity() {
+    }
+
 
     //Methods
     public void performAttackTo(Entity target, int attackSelected) {
-        int damage = getStrength() * attackList.get(attackSelected).getPower();
+        int damage = getStatValue("strength") * attackList.get(attackSelected).getPower();
         target.takeDamage(damage);
     }
 
     public void takeDamage(int damage) {
         if (isDead()) {
+            setStatValue("health", 0);
             return;
         }
-        int newHealth = getHealth() - (int) (damage / (getDefense() * 0.4));
-        setHealth(Math.max(newHealth, 0));
+
+        int newHealth = getStatValue("health") - (int) (damage / (getStatValue("defense") * 0.4));
+        setStatValue("health", newHealth);
 
     }
 
     public boolean isDead() {
-        return getHealth() <= 0;
+        return getStatValue("health") <= 0;
     }
 
-    public void increaseStat(String stat, int value){
-        this.stats.put(stat, this.stats.get(stat) + value); //Actual value + value
+    public void increaseStat(String stat, int value) {
+        setStatValue(stat, getStatValue(stat) + value); //Actual value + value
     }
 
     @Override
@@ -61,16 +64,8 @@ abstract public class Entity {
         stats = _stats;
     }
 
-    public void setHealth(int newHealth) {
-        stats.put("health", newHealth);
-    }
-
-    public void setStrength(int newStrength) {
-        stats.put("strength", newStrength);
-    }
-
-    public void setDefense(int newDefense) {
-        stats.put("defense", newDefense);
+    public void setStatValue(String stat, int newValue) {
+        stats.put(stat.toLowerCase(), newValue);
     }
 
     public void setAttackList(List<Attack> newAttackList) {
@@ -81,16 +76,8 @@ abstract public class Entity {
         return stats;
     }
 
-    public int getHealth() {
-        return stats.get("health");
-    }
-
-    public int getStrength() {
-        return stats.get("strength");
-    }
-
-    public int getDefense() {
-        return stats.get("defense");
+    public int getStatValue(String stat) {
+        return stats.get(stat.toLowerCase());
     }
 
     public List<Attack> getAttackList() {

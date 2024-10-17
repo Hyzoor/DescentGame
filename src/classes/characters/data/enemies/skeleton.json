@@ -1,0 +1,28 @@
+{
+  "identifier": "skeleton",
+
+  "stats": {
+    "health": 40,
+    "strength": 15,
+    "defense": 25
+  },
+
+  "attackList": [
+    {
+      "name": "Default Enemy Attack 1",
+      "power": 2
+    },
+    {
+      "name": "Default Enemy Attack 2",
+      "power": 5
+    },
+    {
+      "name": "Default Enemy Attack 3",
+      "power": 3
+    },
+    {
+      "name": "Default Enemy Attack 4",
+      "power": 3
+    }
+  ]
+}

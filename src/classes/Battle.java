@@ -4,8 +4,8 @@ import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import classes.entities.Enemy;
-import classes.entities.Player;
+import classes.characters.Enemy;
+import classes.characters.Player;
 
 public class Battle {
 
@@ -30,12 +30,6 @@ public class Battle {
         PanelManager.getBattlePanel().enablePlayerButtons(false);
         showResults();
         PanelManager.getBattlePanel().addButtonsAfterWin();
-
-        //Prueba para hacer batallas consecutivas
-//        player.restoreHealth();
-//        Game.instance.createBattle();
-//        PanelManager.changeToBattlePanel();
-        ///////////////////////////////////////////////
     }
 
     public void rotate() {

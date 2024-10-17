@@ -1,4 +1,4 @@
-package classes;
+package classes.characters;
 
 public class Attack {
 
@@ -10,6 +10,9 @@ public class Attack {
     public Attack(String newName, int newPower) {
         setName(newName);
         setPower(newPower);
+    }
+
+    public Attack(){
     }
 
 //------------------ SETTERS AND GETTERS ------------------//

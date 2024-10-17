@@ -3,7 +3,7 @@ package gui.panels.OtherPanels;
 import javax.swing.*;
 import java.awt.*;
 
-import classes.entities.Entity;
+import classes.characters.Entity;
 
 public class EntityPanel extends JPanel {
 

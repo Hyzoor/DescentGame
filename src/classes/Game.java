@@ -1,6 +1,6 @@
 package classes;
 
-import classes.entities.Player;
+import classes.characters.Player;
 import gui.MainFrame;
 
 public class Game {

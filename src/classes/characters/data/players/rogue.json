@@ -1,0 +1,29 @@
+{
+  "identifier": "rogue",
+
+  "stats": {
+    "max_health": 40,
+    "health": 40,
+    "strength": 40,
+    "defense": 20
+  },
+
+  "attackList": [
+    {
+      "name": "Payday",
+      "power": 4
+    },
+    {
+      "name": "Lethal Knife",
+      "power": 8
+    },
+    {
+      "name": "Stealth",
+      "power": 1
+    },
+    {
+      "name": "Attack number 4",
+      "power": 3
+    }
+  ]
+}

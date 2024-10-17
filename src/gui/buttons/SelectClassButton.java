@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import classes.Game;
 import classes.PanelManager;
-import classes.entities.Player;
+import classes.characters.Player;
 
 public class SelectClassButton extends JButton implements ActionListener {
 
