@@ -1,9 +1,9 @@
-package gui.panels.OtherPanels;
+package ui.panels.otherpanels;
 
 import javax.swing.*;
 import java.awt.*;
 
-import gui.buttons.AttackButton;
+import ui.buttons.AttackButton;
 
 public class AttackButtonsPanel extends JPanel {
 

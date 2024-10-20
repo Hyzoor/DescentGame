@@ -1,19 +1,20 @@
-package gui.panels.MainPanels;
+package ui.panels.mainpanels;
 
 import javax.swing.*;
 import java.awt.*;
 
 import classes.Game;
-import gui.panels.OtherPanels.AttackButtonsPanel;
-import gui.panels.OtherPanels.ButtonsAfterWinPanel;
-import gui.panels.OtherPanels.EntityPanel;
+import ui.panels.otherpanels.AttackButtonsPanel;
+import ui.panels.otherpanels.ButtonsAfterWinPanel;
+import ui.panels.otherpanels.EntityPanel;
 
 public class BattlePanel extends JPanel {
 
     //Attributes - Components
     private final JTextArea battleTextArea = new JTextArea();
-    private AttackButtonsPanel attackButtonsPanel;
     private final ButtonsAfterWinPanel buttonsAfterWinPanel = new ButtonsAfterWinPanel();
+    private AttackButtonsPanel attackButtonsPanel;
+
     private final JPanel southPanel = new JPanel();
     private final JPanel northPanel = new JPanel();
 
@@ -25,6 +26,11 @@ public class BattlePanel extends JPanel {
     }
 
 
+    //Methods
+    public void addTurnText(String attacker, String defender, String attack, int defenderHealth) {
+        addText(String.format("%s has used %s. %s health: %d", attacker, attack, defender, defenderHealth));
+    }
+
     public void addText(String newText) {
         this.battleTextArea.append(newText);
         this.battleTextArea.append("\n");
@@ -34,11 +40,11 @@ public class BattlePanel extends JPanel {
         this.battleTextArea.setText("");
     }
 
-    public void enablePlayerButtons(boolean option){
+    public void enablePlayerButtons(boolean option) {
         attackButtonsPanel.enableButtons(option);
     }
 
-    public void addButtonsAfterWin(){
+    public void addButtonsAfterWin() {
         buttonsAfterWinPanel.enablePowerUpButtons(true);
         southPanel.remove(attackButtonsPanel);
         southPanel.add(buttonsAfterWinPanel);
@@ -82,7 +88,7 @@ public class BattlePanel extends JPanel {
 
     //------------------ GETTERS ------------------//
 
-    public ButtonsAfterWinPanel getButtonsAfterWinPanel(){
+    public ButtonsAfterWinPanel getButtonsAfterWinPanel() {
         return buttonsAfterWinPanel;
     }
 

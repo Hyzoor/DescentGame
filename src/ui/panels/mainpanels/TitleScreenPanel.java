@@ -1,9 +1,9 @@
-package gui.panels.MainPanels;
+package ui.panels.mainpanels;
 
 import javax.swing.*;
 import java.awt.*;
 
-import gui.buttons.TitleScreenStartButton;
+import ui.buttons.TitleScreenStartButton;
 
 public class TitleScreenPanel extends JPanel {
 

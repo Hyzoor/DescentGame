@@ -1,8 +1,8 @@
-import classes.Game;
+package classes;
 
 public class Main {
 
     public static void main(String[] args) {
-        Game game = new Game();
+        Game.startGame();
     }
 }

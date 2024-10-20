@@ -1,11 +1,11 @@
-package gui.buttons;
+package ui.buttons;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import classes.Game;
-import classes.PanelManager;
+import ui.PanelManager;
 import classes.characters.Player;
 
 public class SelectClassButton extends JButton implements ActionListener {

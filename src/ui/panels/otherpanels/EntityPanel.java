@@ -1,4 +1,4 @@
-package gui.panels.OtherPanels;
+package ui.panels.otherpanels;
 
 import javax.swing.*;
 import java.awt.*;

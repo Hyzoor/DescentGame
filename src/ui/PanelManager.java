@@ -1,6 +1,7 @@
-package classes;
+package ui;
 
-import gui.panels.MainPanels.*;
+import classes.Game;
+import ui.panels.mainpanels.*;
 
 public class PanelManager {
 

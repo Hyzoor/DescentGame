@@ -1,7 +1,7 @@
-package gui.buttons;
+package ui.buttons;
 
 import classes.Game;
-import classes.PanelManager;
+import ui.PanelManager;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,9 +1,10 @@
-package classes;
+package classes.battle;
 
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import ui.PanelManager;
 import classes.characters.Enemy;
 import classes.characters.Player;
 
@@ -17,9 +18,9 @@ public class Battle {
 
 
     public Battle(Player newPlayer, Enemy newEnemy) {
+        isPlayersTurn = true;
         setPlayer(newPlayer);
         setEnemy(newEnemy);
-        isPlayersTurn = true;
         initializeTimer();
     }
 
@@ -28,8 +29,8 @@ public class Battle {
     public void endBattle() {
         timer.stop();
         PanelManager.getBattlePanel().enablePlayerButtons(false);
-        showResults();
         PanelManager.getBattlePanel().addButtonsAfterWin();
+        showResults();
     }
 
     public void rotate() {
@@ -60,11 +61,14 @@ public class Battle {
         timer = new Timer(2000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!isPlayersTurn) {
-                    enemy.performAttackTo(player);
-                    rotate();
-                    PanelManager.getBattlePanel().enablePlayerButtons(true);
+
+                if (isPlayersTurn) {
+                    return;
                 }
+
+                enemy.performAttackTo(player);
+                rotate();
+                PanelManager.getBattlePanel().enablePlayerButtons(true);
             }
         });
 

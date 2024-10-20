@@ -1,10 +1,10 @@
-package gui.panels.OtherPanels;
+package ui.panels.otherpanels;
 
 import java.awt.*;
 import javax.swing.*;
 
 import classes.characters.Player;
-import gui.buttons.SelectClassButton;
+import ui.buttons.SelectClassButton;
 
 public class PlayerOptionPanel extends JPanel {
 

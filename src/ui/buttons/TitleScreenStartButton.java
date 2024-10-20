@@ -1,12 +1,10 @@
-package gui.buttons;
+package ui.buttons;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import classes.Game;
-import classes.PanelManager;
+import ui.PanelManager;
 
 public class TitleScreenStartButton extends JButton implements ActionListener {
 

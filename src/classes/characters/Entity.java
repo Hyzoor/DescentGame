@@ -1,7 +1,9 @@
 package classes.characters;
 
-import java.util.List;
 import java.util.Map;
+import java.util.List;
+
+import ui.PanelManager;
 
 abstract public class Entity {
 
@@ -27,6 +29,9 @@ abstract public class Entity {
     public void performAttackTo(Entity target, int attackSelected) {
         int damage = getStatValue("strength") * attackList.get(attackSelected).getPower();
         target.takeDamage(damage);
+
+        PanelManager.getBattlePanel().addTurnText(
+                this.toString(), target.toString(), this.attackList.get(attackSelected).getName(), target.getStatValue("health"));
     }
 
     public void takeDamage(int damage) {

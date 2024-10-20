@@ -4,11 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import classes.Game;
-import classes.PanelManager;
 
 public class Enemy extends Entity {
 
@@ -40,14 +38,6 @@ public class Enemy extends Entity {
         int attack = attackSelector();
         super.performAttackTo(target, attack);
 
-        PanelManager.getBattlePanel().addText(
-                String.format("%s has used %s. %s health: %d",
-                        Game.instance.getBattle().getEnemy().toString(),
-                        Game.instance.getBattle().getEnemy().getAttackList().get(attack).getName(),
-                        Game.instance.getBattle().getPlayer().toString(),
-                        Game.instance.getBattle().getPlayer().getStatValue("health")
-                )
-        );
     }
 
     private int attackSelector() {

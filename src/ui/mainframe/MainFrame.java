@@ -1,9 +1,9 @@
-package gui;
+package ui.mainframe;
 
 import javax.swing.*;
 import java.awt.*;
 
-import classes.PanelManager;
+import ui.PanelManager;
 
 public class MainFrame extends JFrame {
 

@@ -1,7 +1,7 @@
-package gui.panels.OtherPanels;
+package ui.panels.otherpanels;
 
-import gui.buttons.NextBattleButton;
-import gui.buttons.PowerUpButton;
+import ui.buttons.NextBattleButton;
+import ui.buttons.PowerUpButton;
 
 import javax.swing.JPanel;
 import java.awt.*;

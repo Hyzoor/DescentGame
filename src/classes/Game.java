@@ -1,19 +1,27 @@
 package classes;
 
+import classes.battle.Battle;
 import classes.characters.Player;
-import gui.MainFrame;
+import ui.mainframe.MainFrame;
 
 public class Game {
 
-    private final MainFrame mainFrame;
-    private Player player;
-    private Battle battle;
-
+    //Singleton
     public static Game instance;
 
-    public Game() {
-        instance = this;    //Singleton
+    private final MainFrame mainFrame;
+    private Battle battle;
+    private Player player;
+
+    private Game() {
         mainFrame = new MainFrame();
+    }
+
+    public static void startGame(){
+        if(instance != null){
+            return;
+        }
+        instance = new Game();
     }
 
     //Methods
