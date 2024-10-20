@@ -14,7 +14,7 @@ public class ButtonsAfterWinPanel extends JPanel{
         this.add(new PowerUpButton("strength"));
         this.add(new PowerUpButton("defense"));
         this.add(new NextBattleButton());
-
+        this.setOpaque(false);
     }
 
     public void enablePowerUpButtons(boolean option){

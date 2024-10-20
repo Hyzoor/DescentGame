@@ -3,7 +3,9 @@ package ui.panels.otherpanels;
 import javax.swing.*;
 import java.awt.*;
 
+import classes.characters.Enemy;
 import classes.characters.Entity;
+import classes.characters.Player;
 
 public class EntityPanel extends JPanel {
 
@@ -13,26 +15,21 @@ public class EntityPanel extends JPanel {
     public EntityPanel(Entity newEntity) {
 
         entity = newEntity;
-
-        this.setLayout(new GridLayout(1,1,0,0));
-//        this.setBorder(BorderFactory.createEmptyBorder(20, 20, 0, 20));
-
         JLabel entityImage = new JLabel(getEntityImage());
 
+        this.setLayout(new GridLayout(1, 1, 0, 0));
         this.add(entityImage);
+        this.setOpaque(false);
     }
 
     private ImageIcon getEntityImage() {
 
-        return switch (entity.toString().toUpperCase()) {
-            case "KNIGHT" -> new ImageIcon("src/resources/images/knight.png");
-            case "MAGE" -> new ImageIcon("src/resources/images/mage.png");
-            case "ROGUE" -> new ImageIcon("src/resources/images/rogue.png");
-            //TODO images for enemies
-            case "GOBLIN" -> new ImageIcon("src/resources/images/rogue.png");
-            case "SKELETON" -> new ImageIcon("src/resources/images/rogue.png");
+        if (entity instanceof Enemy) {
+            return new ImageIcon("src/resources/images/characters/enemies/" + entity.toString().toLowerCase() + ".png");
+        } else if (entity instanceof Player) {
+            return new ImageIcon("src/resources/images/characters/players/" + entity.toString().toLowerCase() + ".png");
 
-            default -> null;
-        };
+        }
+        return null;
     }
 }

@@ -14,6 +14,7 @@ public class BattlePanel extends JPanel {
     private final JTextArea battleTextArea = new JTextArea();
     private final ButtonsAfterWinPanel buttonsAfterWinPanel = new ButtonsAfterWinPanel();
     private AttackButtonsPanel attackButtonsPanel;
+    private final Image background;
 
     private final JPanel southPanel = new JPanel();
     private final JPanel northPanel = new JPanel();
@@ -22,6 +23,7 @@ public class BattlePanel extends JPanel {
     //Constructor
     public BattlePanel() {
         this.setLayout(new GridLayout(2, 1, 10, 10));
+        background = new ImageIcon("src/resources/images/combat-background.jpg").getImage();
         initializePanel();
     }
 
@@ -52,6 +54,14 @@ public class BattlePanel extends JPanel {
         this.revalidate();
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (background != null) {
+            g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
+        }
+    }
+
     //Methods for constructor
     private void initializePanel() {
         battleTextArea.setEditable(false);
@@ -60,9 +70,11 @@ public class BattlePanel extends JPanel {
 
         northPanel.setLayout(new GridLayout(1, 2, 30, 30));
         northPanel.setBorder(BorderFactory.createEmptyBorder(40, 20, 20, 20));
+        northPanel.setOpaque(false);
 
         southPanel.setLayout(new GridLayout(2, 1, 20, 20));
         southPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        southPanel.setOpaque(false);
     }
 
     public void updatePanel() {

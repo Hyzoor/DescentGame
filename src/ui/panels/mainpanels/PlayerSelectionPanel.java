@@ -8,17 +8,23 @@ import ui.panels.otherpanels.PlayerOptionPanel;
 
 public class PlayerSelectionPanel extends JPanel {
 
+    private final Image background;
+
     public PlayerSelectionPanel() {
 
-        String[] playersAvailable = {"Rogue", "Mage", "Knight"};
+        background = new ImageIcon("src/resources/images/combat-background.jpg").getImage();
 
-        JPanel gridPanel = new JPanel(new GridLayout(1,3,20,20));
+        this.setLayout(new GridLayout(1, 3, 20, 20));
+        this.add(new PlayerOptionPanel(new Player("Rogue")));
+        this.add(new PlayerOptionPanel(new Player("Mage")));
+        this.add(new PlayerOptionPanel(new Player("Knight")));
+    }
 
-        gridPanel.add(new PlayerOptionPanel(new Player("Rogue")));
-        gridPanel.add(new PlayerOptionPanel(new Player("Mage")));
-        gridPanel.add(new PlayerOptionPanel(new Player("Knight")));
-
-        this.setLayout(new BorderLayout());
-        this.add(gridPanel, BorderLayout.CENTER);
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (background != null) {
+            g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
+        }
     }
 }

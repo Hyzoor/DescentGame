@@ -10,8 +10,12 @@ public class EnemyFactory {
     private final static List<String> enemyList = new ArrayList<>();
 
     static {
-        enemyList.add("Skeleton");
+        enemyList.add("Beast");
         enemyList.add("Goblin");
+        enemyList.add("Ghost");
+        enemyList.add("Gollum");
+        enemyList.add("Demon");
+        enemyList.add("Boss");
     }
 
 

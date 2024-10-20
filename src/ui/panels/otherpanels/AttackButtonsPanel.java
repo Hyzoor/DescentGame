@@ -14,6 +14,7 @@ public class AttackButtonsPanel extends JPanel {
         this.add(new AttackButton(1));
         this.add(new AttackButton(2));
         this.add(new AttackButton(3));
+        this.setOpaque(false);
     }
 
 
