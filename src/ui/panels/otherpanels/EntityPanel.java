@@ -14,12 +14,12 @@ public class EntityPanel extends JPanel {
 
         entity = newEntity;
 
-        this.setLayout(new BorderLayout());
+        this.setLayout(new GridLayout(1,1,0,0));
 //        this.setBorder(BorderFactory.createEmptyBorder(20, 20, 0, 20));
 
         JLabel entityImage = new JLabel(getEntityImage());
 
-        this.add(entityImage, BorderLayout.CENTER);
+        this.add(entityImage);
     }
 
     private ImageIcon getEntityImage() {
@@ -29,7 +29,7 @@ public class EntityPanel extends JPanel {
             case "MAGE" -> new ImageIcon("src/resources/images/mage.png");
             case "ROGUE" -> new ImageIcon("src/resources/images/rogue.png");
             //TODO images for enemies
-            case "GOBLIM" -> new ImageIcon("src/resources/images/rogue.png");
+            case "GOBLIN" -> new ImageIcon("src/resources/images/rogue.png");
             case "SKELETON" -> new ImageIcon("src/resources/images/rogue.png");
 
             default -> null;

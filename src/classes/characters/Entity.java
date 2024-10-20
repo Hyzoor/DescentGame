@@ -36,12 +36,11 @@ abstract public class Entity {
 
     public void takeDamage(int damage) {
         if (isDead()) {
-            setStatValue("health", 0);
             return;
         }
 
         int newHealth = getStatValue("health") - (int) (damage / (getStatValue("defense") * 0.4));
-        setStatValue("health", newHealth);
+        setStatValue("health", Math.max(newHealth,0));
 
     }
 

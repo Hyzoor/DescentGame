@@ -7,14 +7,23 @@ import ui.buttons.TitleScreenStartButton;
 
 public class TitleScreenPanel extends JPanel {
 
+    Image background;
+
     public TitleScreenPanel() {
 
-        JLabel titleLabel = new JLabel();
-        titleLabel.setIcon(new ImageIcon("src/resources/images/title.png"));
+        background = new ImageIcon("src/resources/images/title-screen.jpg").getImage();
 
         this.setLayout(new BorderLayout());
-        this.add(titleLabel, BorderLayout.CENTER);
-        this.add(new TitleScreenStartButton(), BorderLayout.SOUTH);
+        this.add(new TitleScreenStartButton(), BorderLayout.CENTER);
 
+    }
+
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (background != null) {
+            g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
+        }
     }
 }
