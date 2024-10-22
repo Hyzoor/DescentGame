@@ -13,7 +13,7 @@ public class Enemy extends Entity {
     public Enemy(String newIdentifier) {
         super(newIdentifier, new HashMap<>(), new ArrayList<>());
 
-        String jsonFilepath = "src/classes/characters/data/enemies/" + identifier.toLowerCase() + ".json";
+        String jsonFilepath = "src/game/characters/data/enemies/" + identifier.toLowerCase() + ".json";
         JsonMapper.mapEntity(jsonFilepath, this);
     }
 

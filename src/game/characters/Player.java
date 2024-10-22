@@ -11,7 +11,7 @@ public class Player extends Entity {
     public Player(String newIdentifier) {
         super(newIdentifier, new HashMap<>(), new ArrayList<>(4));
 
-        String jsonFilepath = "src/classes/characters/data/players/" + identifier.toLowerCase() + ".json";
+        String jsonFilepath = "src/game/characters/data/players/" + identifier.toLowerCase() + ".json";
         JsonMapper.mapEntity(jsonFilepath, this);
     }
 
