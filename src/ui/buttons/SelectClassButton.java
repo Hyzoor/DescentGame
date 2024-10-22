@@ -1,13 +1,12 @@
 package ui.buttons;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import classes.Game;
+import game.Game;
 import ui.PanelManager;
-import classes.characters.Player;
+import game.characters.Player;
 
 public class SelectClassButton extends JButton implements ActionListener {
 

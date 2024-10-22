@@ -1,22 +1,22 @@
-package classes.battle;
+package game.battle;
 
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import ui.PanelManager;
-import classes.characters.Enemy;
-import classes.characters.Player;
+import game.characters.Enemy;
+import game.characters.Player;
 
 public class Battle {
 
     //Attributes
     private Player player;
     private Enemy enemy;
-    private boolean isPlayersTurn;
     private Timer timer;
+    private boolean isPlayersTurn;
 
-
+    //Constructor
     public Battle(Player newPlayer, Enemy newEnemy) {
         isPlayersTurn = true;
         setPlayer(newPlayer);
@@ -26,23 +26,33 @@ public class Battle {
 
 
     //Methods
-    public void endBattle() {
-        timer.stop();
-        PanelManager.getBattlePanel().enablePlayerButtons(false);
-        PanelManager.getBattlePanel().addButtonsAfterWin();
-        showResults();
-    }
-
     public void rotate() {
         if (isAnyoneDead()) {
-            endBattle();
+            end();
             return;
         }
         isPlayersTurn = !isPlayersTurn;
     }
 
+    public boolean isPlayerWinner(){
+        return !player.isDead();
+    }
+
     public boolean isAnyoneDead() {
         return player.isDead() || enemy.isDead();
+    }
+
+    public void end() {
+        timer.stop();
+        PanelManager.getBattlePanel().enablePlayerButtons(false);
+
+        if(isPlayerWinner()){
+            PanelManager.getBattlePanel().addButtonsAfterWinning();
+        }else{
+            PanelManager.getBattlePanel().addButtonsAfterLosing();
+        }
+
+        showResults();
     }
 
     public void showResults() {

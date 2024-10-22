@@ -3,7 +3,7 @@ package ui.panels.mainpanels;
 import java.awt.*;
 import javax.swing.*;
 
-import classes.characters.Player;
+import game.characters.Player;
 import ui.panels.otherpanels.PlayerOptionPanel;
 
 public class PlayerSelectionPanel extends JPanel {

@@ -3,7 +3,7 @@ package ui.buttons;
 import javax.swing.*;
 import java.awt.event.*;
 
-import classes.Game;
+import game.Game;
 import ui.PanelManager;
 
 

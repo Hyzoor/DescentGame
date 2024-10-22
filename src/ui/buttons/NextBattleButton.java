@@ -1,6 +1,6 @@
 package ui.buttons;
 
-import classes.Game;
+import game.Game;
 import ui.PanelManager;
 
 import javax.swing.*;

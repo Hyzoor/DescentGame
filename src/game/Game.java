@@ -1,7 +1,8 @@
-package classes;
+package game;
 
-import classes.battle.Battle;
-import classes.characters.Player;
+import game.battle.Battle;
+import game.characters.Player;
+import game.enemyfactory.RandomEnemyFactory;
 import ui.mainframe.MainFrame;
 
 public class Game {
@@ -10,8 +11,8 @@ public class Game {
     public static Game instance;
 
     private final MainFrame mainFrame;
-    private Battle battle;
     private Player player;
+    private Battle battle;
 
     private Game() {
         mainFrame = new MainFrame();
@@ -26,7 +27,11 @@ public class Game {
 
     //Methods
     public void createBattle(){
-        battle = new Battle(player, EnemyFactory.createRandomEnemy());
+        battle = new Battle(player, new RandomEnemyFactory().createEnemy());
+    }
+
+    public void createBossBattle(){
+        //TODO
     }
 
 //------------------ SETTERS AND GETTERS ------------------//
@@ -47,8 +52,5 @@ public class Game {
         return battle;
     }
 
-    public void setBattle(Battle newBattle) {
-        battle = newBattle;
-    }
 }
 

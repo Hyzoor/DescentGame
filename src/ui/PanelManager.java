@@ -1,6 +1,6 @@
 package ui;
 
-import classes.Game;
+import game.Game;
 import ui.panels.mainpanels.*;
 
 public class PanelManager {

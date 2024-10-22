@@ -1,4 +1,4 @@
-package classes.characters;
+package game.characters;
 
 import java.util.Map;
 import java.util.List;
@@ -21,27 +21,23 @@ abstract public class Entity {
         setAttackList(newAttackList);
     }
 
-    public Entity() {
-    }
-
 
     //Methods
-    public void performAttackTo(Entity target, int attackSelected) {
-        int damage = getStatValue("strength") * attackList.get(attackSelected).getPower();
+    public void performAttackTo(Entity target, int attackNumber) {
+        int damage = getStatValue("strength") * attackList.get(attackNumber).getPower();
         target.takeDamage(damage);
 
         PanelManager.getBattlePanel().addTurnText(
-                this.toString(), target.toString(), this.attackList.get(attackSelected).getName(), target.getStatValue("health"));
+                this.toString(), target.toString(), this.attackList.get(attackNumber).getName(), target.getStatValue("health"));
     }
 
     public void takeDamage(int damage) {
-        if (isDead()) {
+        if (this.isDead()) {
             return;
         }
 
         int newHealth = getStatValue("health") - (int) (damage / (getStatValue("defense") * 0.4));
-        setStatValue("health", Math.max(newHealth,0));
-
+        setStatValue("health", Math.max(newHealth, 0));
     }
 
     public boolean isDead() {
@@ -52,11 +48,11 @@ abstract public class Entity {
         setStatValue(stat, getStatValue(stat) + value); //Actual value + value
     }
 
+
     @Override
     public String toString() {
         return getIdentifier();
     }
-
 
     //------------------ SETTERS AND GETTERS ------------------//
 

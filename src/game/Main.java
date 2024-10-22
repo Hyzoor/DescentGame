@@ -1,4 +1,4 @@
-package classes;
+package game;
 
 public class Main {
 

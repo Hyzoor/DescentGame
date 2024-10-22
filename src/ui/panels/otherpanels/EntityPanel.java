@@ -3,9 +3,9 @@ package ui.panels.otherpanels;
 import javax.swing.*;
 import java.awt.*;
 
-import classes.characters.Enemy;
-import classes.characters.Entity;
-import classes.characters.Player;
+import game.characters.Enemy;
+import game.characters.Entity;
+import game.characters.Player;
 
 public class EntityPanel extends JPanel {
 

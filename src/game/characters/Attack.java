@@ -1,4 +1,4 @@
-package classes.characters;
+package game.characters;
 
 public class Attack {
 

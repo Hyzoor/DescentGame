@@ -3,7 +3,7 @@ package ui.panels.mainpanels;
 import javax.swing.*;
 import java.awt.*;
 
-import classes.Game;
+import game.Game;
 import ui.panels.otherpanels.AttackButtonsPanel;
 import ui.panels.otherpanels.ButtonsAfterWinPanel;
 import ui.panels.otherpanels.EntityPanel;
@@ -46,12 +46,16 @@ public class BattlePanel extends JPanel {
         attackButtonsPanel.enableButtons(option);
     }
 
-    public void addButtonsAfterWin() {
+    public void addButtonsAfterWinning() {
         buttonsAfterWinPanel.enablePowerUpButtons(true);
         southPanel.remove(attackButtonsPanel);
         southPanel.add(buttonsAfterWinPanel);
         this.repaint();
         this.revalidate();
+    }
+
+    public void addButtonsAfterLosing() {
+        //TODO
     }
 
     @Override
