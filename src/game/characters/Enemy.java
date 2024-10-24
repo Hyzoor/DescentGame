@@ -1,17 +1,15 @@
 package game.characters;
 
+import java.util.Random;
 
 import game.JsonMapper;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class Enemy extends Entity {
 
     //Constructor
     public Enemy(String newIdentifier) {
-        super(newIdentifier, new HashMap<>(), new ArrayList<>());
+        super(newIdentifier);
 
         String jsonFilepath = "src/game/characters/data/enemies/" + identifier.toLowerCase() + ".json";
         JsonMapper.mapEntity(jsonFilepath, this);
@@ -24,6 +22,7 @@ public class Enemy extends Entity {
     }
 
     private int attackSelector() {
-        return (int) (Math.random() * attackList.size());
+        Random random = new Random();
+        return random.nextInt(attackList.size());
     }
 }

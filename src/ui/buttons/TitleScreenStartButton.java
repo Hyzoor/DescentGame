@@ -9,14 +9,14 @@ import ui.PanelManager;
 public class TitleScreenStartButton extends JButton implements ActionListener {
 
     //Constructor
-    public TitleScreenStartButton(){
+    public TitleScreenStartButton() {
         this.addActionListener(this);
         initializeButton();
     }
 
 
     //Methods
-    private void initializeButton(){
+    private void initializeButton() {
         this.setBorderPainted(false);
         this.setContentAreaFilled(false);
         this.setFocusPainted(false);

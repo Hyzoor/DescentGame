@@ -13,17 +13,17 @@ public class BattlePanel extends JPanel {
     //Attributes - Components
     private final JTextArea battleTextArea = new JTextArea();
     private final ButtonsAfterWinPanel buttonsAfterWinPanel = new ButtonsAfterWinPanel();
-    private AttackButtonsPanel attackButtonsPanel;
     private final Image background;
-
     private final JPanel southPanel = new JPanel();
     private final JPanel northPanel = new JPanel();
+    private  AttackButtonsPanel attackButtonsPanel;
 
 
     //Constructor
     public BattlePanel() {
-        this.setLayout(new GridLayout(2, 1, 10, 10));
         background = new ImageIcon("src/resources/images/combat-background.jpg").getImage();
+
+        this.setLayout(new GridLayout(2, 1, 10, 10));
         initializePanel();
     }
 

@@ -9,27 +9,25 @@ import game.characters.Player;
 
 public class EntityPanel extends JPanel {
 
-    private final Entity entity;
 
     //Constructor
-    public EntityPanel(Entity newEntity) {
+    public EntityPanel(Entity entity) {
 
-        entity = newEntity;
-        JLabel entityImage = new JLabel(getEntityImage());
+        JLabel entityImage = new JLabel(getEntityImage(entity));
 
         this.setLayout(new GridLayout(1, 1, 0, 0));
         this.add(entityImage);
         this.setOpaque(false);
     }
 
-    private ImageIcon getEntityImage() {
+    private ImageIcon getEntityImage(Entity entity) {
 
         if (entity instanceof Enemy) {
             return new ImageIcon("src/resources/images/characters/enemies/" + entity.toString().toLowerCase() + ".png");
         } else if (entity instanceof Player) {
             return new ImageIcon("src/resources/images/characters/players/" + entity.toString().toLowerCase() + ".png");
-
         }
+
         return null;
     }
 }

@@ -2,7 +2,8 @@ package game;
 
 import game.battle.Battle;
 import game.characters.Player;
-import game.enemyfactory.RandomEnemyFactory;
+import game.enemyfactory.EnemyFactory;
+import ui.PanelManager;
 import ui.mainframe.MainFrame;
 
 public class Game {
@@ -18,20 +19,17 @@ public class Game {
         mainFrame = new MainFrame();
     }
 
-    public static void startGame(){
-        if(instance != null){
+    public static void start() {
+        if (instance != null) {
             return;
         }
         instance = new Game();
     }
 
     //Methods
-    public void createBattle(){
-        battle = new Battle(player, new RandomEnemyFactory().createEnemy());
-    }
-
-    public void createBossBattle(){
-        //TODO
+    public void createBattle(EnemyFactory enemyFactory) {
+        battle = new Battle(player, enemyFactory.createEnemy());
+        PanelManager.getBattlePanel().updatePanel();
     }
 
 //------------------ SETTERS AND GETTERS ------------------//

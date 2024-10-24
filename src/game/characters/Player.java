@@ -2,14 +2,11 @@ package game.characters;
 
 import game.JsonMapper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class Player extends Entity {
 
     //Constructor
     public Player(String newIdentifier) {
-        super(newIdentifier, new HashMap<>(), new ArrayList<>(4));
+        super(newIdentifier);
 
         String jsonFilepath = "src/game/characters/data/players/" + identifier.toLowerCase() + ".json";
         JsonMapper.mapEntity(jsonFilepath, this);

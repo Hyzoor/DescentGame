@@ -7,7 +7,7 @@ import ui.buttons.TitleScreenStartButton;
 
 public class TitleScreenPanel extends JPanel {
 
-    Image background;
+    private final Image background;
 
     public TitleScreenPanel() {
 

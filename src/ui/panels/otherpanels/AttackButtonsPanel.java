@@ -19,9 +19,9 @@ public class AttackButtonsPanel extends JPanel {
 
 
     //Methods
-    public void enableButtons(boolean option){
-        for(Component button: this.getComponents()){
-                button.setEnabled(option);
+    public void enableButtons(boolean option) {
+        for (Component button : this.getComponents()) {
+            button.setEnabled(option);
         }
     }
 

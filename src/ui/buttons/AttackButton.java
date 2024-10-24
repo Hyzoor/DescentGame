@@ -14,7 +14,7 @@ public class AttackButton extends JButton implements ActionListener {
     //Constructor
     public AttackButton(int newAttackAssociated) {
         attackAssociated = newAttackAssociated;
-        super.setText(Game.instance.getBattle().getPlayer().getAttackList().get(attackAssociated).getName());
+        super.setText(Game.instance.getPlayer().getAttackList().get(attackAssociated).getName());
         this.addActionListener(this);
     }
 

@@ -15,10 +15,8 @@ abstract public class Entity {
 
 
     //Constructor
-    public Entity(String newIdentifier, Map<String, Integer> newStats, List<Attack> newAttackList) {
+    public Entity(String newIdentifier) {
         setIdentifier(newIdentifier);
-        setStats(newStats);
-        setAttackList(newAttackList);
     }
 
 
@@ -44,14 +42,9 @@ abstract public class Entity {
         return getStatValue("health") <= 0;
     }
 
-    public void increaseStat(String stat, int value) {
-        setStatValue(stat, getStatValue(stat) + value); //Actual value + value
-    }
-
-
     @Override
     public String toString() {
-        return getIdentifier();
+        return identifier;
     }
 
     //------------------ SETTERS AND GETTERS ------------------//
@@ -84,7 +77,4 @@ abstract public class Entity {
         return attackList;
     }
 
-    public String getIdentifier() {
-        return identifier;
-    }
 }

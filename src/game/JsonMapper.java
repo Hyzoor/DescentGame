@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class JsonMapper {
 
-    public static void  mapEntity(String jsonFilepath, Entity entity) {
+    public static void mapEntity(String jsonFilepath, Entity entity) {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {

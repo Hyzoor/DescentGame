@@ -15,6 +15,7 @@ public class MainFrame extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
+        this.setLocationRelativeTo(null);
 
         this.add(PanelManager.getTitleScreenPanel());
 
