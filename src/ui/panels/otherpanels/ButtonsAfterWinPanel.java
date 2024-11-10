@@ -6,6 +6,7 @@ import ui.buttons.PowerUpButton;
 import javax.swing.JPanel;
 import java.awt.*;
 
+
 public class ButtonsAfterWinPanel extends JPanel {
 
     public ButtonsAfterWinPanel() {
