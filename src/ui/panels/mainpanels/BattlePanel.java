@@ -10,25 +10,22 @@ import ui.panels.otherpanels.EntityPanel;
 
 public class BattlePanel extends JPanel {
 
-    //Attributes - Components
+    // Attributes - Components
     private final JTextArea battleTextArea = new JTextArea();
     private final ButtonsAfterWinPanel buttonsAfterWinPanel = new ButtonsAfterWinPanel();
     private final Image background;
     private final JPanel southPanel = new JPanel();
     private final JPanel northPanel = new JPanel();
-    private  AttackButtonsPanel attackButtonsPanel;
+    private AttackButtonsPanel attackButtonsPanel;
 
-
-    //Constructor
+    // Constructor
     public BattlePanel() {
         background = new ImageIcon("src/resources/images/combat-background.jpg").getImage();
-
-        this.setLayout(new GridLayout(2, 1, 10, 10));
+        this.setLayout(new BorderLayout());
         initializePanel();
     }
 
-
-    //Methods
+    // Methods
     public void addTurnText(String attacker, String defender, String attack, int defenderHealth) {
         addText(String.format("%s has used %s. %s health: %d", attacker, attack, defender, defenderHealth));
     }
@@ -55,7 +52,7 @@ public class BattlePanel extends JPanel {
     }
 
     public void addButtonsAfterLosing() {
-        //TODO
+        // TODO
     }
 
     @Override
@@ -66,7 +63,7 @@ public class BattlePanel extends JPanel {
         }
     }
 
-    //Methods for constructor
+    // Methods for constructor
     private void initializePanel() {
         battleTextArea.setEditable(false);
         battleTextArea.setCaretPosition(battleTextArea.getDocument().getLength());
@@ -81,8 +78,12 @@ public class BattlePanel extends JPanel {
         southPanel.setOpaque(false);
     }
 
-    public void updatePanel() {
+    public void setBattleCount(int count) {
+        clearText();
+        addText("Battles: " + count);
+    }
 
+    public void updatePanel() {
         this.southPanel.removeAll();
         this.northPanel.removeAll();
 
@@ -96,10 +97,13 @@ public class BattlePanel extends JPanel {
         northPanel.add(new EntityPanel(Game.instance.getBattle().getPlayer()));
         northPanel.add(new EntityPanel(Game.instance.getBattle().getEnemy()));
 
-        this.add(northPanel);
-        this.add(southPanel);
+        this.add(northPanel, BorderLayout.NORTH);
+        this.add(southPanel, BorderLayout.CENTER);
         this.repaint();
         this.revalidate();
+
+
+        setBattleCount(Game.instance.getBattleCounter().getCount());
     }
 
     //------------------ GETTERS ------------------//
@@ -107,5 +111,4 @@ public class BattlePanel extends JPanel {
     public ButtonsAfterWinPanel getButtonsAfterWinPanel() {
         return buttonsAfterWinPanel;
     }
-
 }
