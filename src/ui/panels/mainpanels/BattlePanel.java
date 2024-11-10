@@ -79,8 +79,8 @@ public class BattlePanel extends JPanel {
     }
 
     public void setBattleCount(int count) {
-        clearText();
-        addText("Battles: " + count);
+        clearText(); // Limpiar el área de texto antes de añadir el contador
+        addText("Battles: " + count); // Añadir el número de batallas al área de texto
     }
 
     public void updatePanel() {
