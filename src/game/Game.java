@@ -8,15 +8,18 @@ import ui.mainframe.MainFrame;
 
 public class Game {
 
-    //Singleton
+    // Singleton
     public static Game instance;
 
     private final MainFrame mainFrame;
     private Player player;
     private Battle battle;
+    private final BattleCounter battleCounter;
+    private final int MAX_BATTLES = 10;
 
     private Game() {
         mainFrame = new MainFrame();
+        battleCounter = new BattleCounter();
     }
 
     public static void start() {
@@ -26,13 +29,28 @@ public class Game {
         instance = new Game();
     }
 
-    //Methods
+    // Methods
     public void createBattle(EnemyFactory enemyFactory) {
+        if (battleCounter.getCount() >= MAX_BATTLES) {
+            endGame();
+            return;
+        }
+
         battle = new Battle(player, enemyFactory.createEnemy());
+        battleCounter.increment();
+        PanelManager.updateBattleCount();
         PanelManager.getBattlePanel().updatePanel();
     }
 
-//------------------ SETTERS AND GETTERS ------------------//
+    public BattleCounter getBattleCounter() {
+        return battleCounter;
+    }
+
+    private void endGame() {
+        PanelManager.getBattlePanel().addText("You have reach level 10, you have win!");
+    }
+
+    //------------------ SETTERS Y GETTERS ------------------//
 
     public MainFrame getMainFrame() {
         return mainFrame;
@@ -49,6 +67,4 @@ public class Game {
     public Battle getBattle() {
         return battle;
     }
-
 }
-

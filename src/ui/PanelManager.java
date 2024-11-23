@@ -5,22 +5,18 @@ import ui.panels.mainpanels.*;
 
 public class PanelManager {
 
-    //Attributes - Panels
+    // Attributes - Panels
     private final static TitleScreenPanel titleScreenPanel;
     private final static PlayerSelectionPanel playerSelectionPanel;
     private final static BattlePanel battlePanel;
 
-
     static {
-
         titleScreenPanel = new TitleScreenPanel();
         playerSelectionPanel = new PlayerSelectionPanel();
         battlePanel = new BattlePanel();
-
     }
 
-
-    //Methods
+    // Methods
     public static void changeToPlayerSelectionPanel() {
         Game.instance.getMainFrame().getContentPane().removeAll();
         Game.instance.getMainFrame().add(playerSelectionPanel);
@@ -43,7 +39,11 @@ public class PanelManager {
         Game.instance.getMainFrame().revalidate();
     }
 
-//------------------ SETTERS AND GETTERS ------------------//
+    public static void updateBattleCount() {
+        battlePanel.setBattleCount(Game.instance.getBattleCounter().getCount());
+    }
+
+    //------------------ SETTERS AND GETTERS ------------------//
 
     public static TitleScreenPanel getTitleScreenPanel() {
         return titleScreenPanel;
@@ -56,6 +56,4 @@ public class PanelManager {
     public static BattlePanel getBattlePanel() {
         return battlePanel;
     }
-
-
 }
