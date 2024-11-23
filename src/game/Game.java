@@ -14,12 +14,10 @@ public class Game {
     private final MainFrame mainFrame;
     private Player player;
     private Battle battle;
-    private final BattleCounter battleCounter;
-    private final int MAX_BATTLES = 10;
 
     private Game() {
         mainFrame = new MainFrame();
-        battleCounter = new BattleCounter();
+        BattleCounter.reset();
     }
 
     public static void start() {
@@ -31,23 +29,19 @@ public class Game {
 
     // Methods
     public void createBattle(EnemyFactory enemyFactory) {
-        if (battleCounter.getCount() >= MAX_BATTLES) {
+        if (BattleCounter.hasReachedMax()) {
             endGame();
             return;
         }
 
         battle = new Battle(player, enemyFactory.createEnemy());
-        battleCounter.increment();
-        PanelManager.updateBattleCount();
+        BattleCounter.increment();
+        PanelManager.getBattlePanel().showBattleCount();
         PanelManager.getBattlePanel().updatePanel();
     }
 
-    public BattleCounter getBattleCounter() {
-        return battleCounter;
-    }
-
     private void endGame() {
-        PanelManager.getBattlePanel().addText("You have reach level 10, you have win!");
+        PanelManager.getBattlePanel().addText("You have reach level " + BattleCounter.get() + ", you have win!");
     }
 
     //------------------ SETTERS Y GETTERS ------------------//

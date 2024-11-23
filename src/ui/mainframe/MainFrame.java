@@ -11,7 +11,7 @@ public class MainFrame extends JFrame {
     public MainFrame() {
 
         this.setTitle("The Descent - RogueLike Game");
-        this.setSize(900, 600);
+        this.setSize(1200, 750);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());

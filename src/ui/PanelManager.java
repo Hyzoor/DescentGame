@@ -39,10 +39,6 @@ public class PanelManager {
         Game.instance.getMainFrame().revalidate();
     }
 
-    public static void updateBattleCount() {
-        battlePanel.setBattleCount(Game.instance.getBattleCounter().getCount());
-    }
-
     //------------------ SETTERS AND GETTERS ------------------//
 
     public static TitleScreenPanel getTitleScreenPanel() {

@@ -1,21 +1,28 @@
 package game;
 
 public class BattleCounter {
-    private int count;
+
+    private static int count;
+    private static final int MAX_BATTLES = 10;
+
 
     public BattleCounter() {
         count = 0;
     }
 
-    public void increment() {
+    public static void increment() {
         count++;
     }
 
-    public int getCount() {
+    public static int get() {
         return count;
     }
 
-    public void reset() {
+    public static void reset() {
         count = 0;
+    }
+
+    public static boolean hasReachedMax(){
+        return (count == MAX_BATTLES);
     }
 }

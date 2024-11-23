@@ -3,6 +3,7 @@ package ui.panels.mainpanels;
 import javax.swing.*;
 import java.awt.*;
 
+import game.BattleCounter;
 import game.Game;
 import ui.panels.otherpanels.AttackButtonsPanel;
 import ui.panels.otherpanels.ButtonsAfterWinPanel;
@@ -39,6 +40,11 @@ public class BattlePanel extends JPanel {
         this.battleTextArea.setText("");
     }
 
+    public void showBattleCount() {
+        clearText(); // Limpiar el área de texto antes de añadir el contador
+        addText("Actual Battle : " + BattleCounter.get()); // Añadir el número de batallas al área de texto
+    }
+
     public void enablePlayerButtons(boolean option) {
         attackButtonsPanel.enableButtons(option);
     }
@@ -62,25 +68,20 @@ public class BattlePanel extends JPanel {
             g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
         }
     }
-
     // Methods for constructor
+
     private void initializePanel() {
         battleTextArea.setEditable(false);
         battleTextArea.setCaretPosition(battleTextArea.getDocument().getLength());
         battleTextArea.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         northPanel.setLayout(new GridLayout(1, 2, 30, 30));
-        northPanel.setBorder(BorderFactory.createEmptyBorder(40, 20, 20, 20));
+        northPanel.setBorder(BorderFactory.createEmptyBorder(100, 20, 100, 20));
         northPanel.setOpaque(false);
 
         southPanel.setLayout(new GridLayout(2, 1, 20, 20));
         southPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         southPanel.setOpaque(false);
-    }
-
-    public void setBattleCount(int count) {
-        clearText(); // Limpiar el área de texto antes de añadir el contador
-        addText("Battles: " + count); // Añadir el número de batallas al área de texto
     }
 
     public void updatePanel() {
@@ -102,8 +103,6 @@ public class BattlePanel extends JPanel {
         this.repaint();
         this.revalidate();
 
-
-        setBattleCount(Game.instance.getBattleCounter().getCount());
     }
 
     //------------------ GETTERS ------------------//
