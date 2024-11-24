@@ -3,8 +3,13 @@ package game;
 import game.battle.Battle;
 import game.characters.Player;
 import game.enemyfactory.EnemyFactory;
+import game.enemyfactory.RandomBossFactory;
+import game.enemyfactory.RandomDifficultEnemyFactory;
+import game.enemyfactory.RandomEnemyFactory;
 import ui.PanelManager;
 import ui.mainframe.MainFrame;
+
+import java.util.Random;
 
 public class Game {
 
@@ -28,20 +33,32 @@ public class Game {
     }
 
     // Methods
-    public void createBattle(EnemyFactory enemyFactory) {
+    public void createBattle(){
+        int battlesPlayed = BattleCounter.get();
+
         if (BattleCounter.hasReachedMax()) {
             endGame();
             return;
         }
 
+        if(battlesPlayed < 4){
+            createBattle(new RandomEnemyFactory());
+        }else if(battlesPlayed < 8){
+            createBattle(new RandomDifficultEnemyFactory());
+        }else{
+            createBattle(new RandomBossFactory());
+        }
+    }
+
+    private void createBattle(EnemyFactory enemyFactory) {
         battle = new Battle(player, enemyFactory.createEnemy());
         BattleCounter.increment();
-        PanelManager.getBattlePanel().showBattleCount();
+        PanelManager.getBattlePanel().getBattleTextArea().showBattleCount();
         PanelManager.getBattlePanel().updatePanel();
     }
 
     private void endGame() {
-        PanelManager.getBattlePanel().addText("You have reach level " + BattleCounter.get() + ", you have win!");
+        PanelManager.getBattlePanel().getBattleTextArea().addText("You have reach level " + BattleCounter.get() + ", you have win!");
     }
 
     //------------------ SETTERS Y GETTERS ------------------//

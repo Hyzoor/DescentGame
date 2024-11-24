@@ -21,7 +21,7 @@ public class AttackButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        PanelManager.getBattlePanel().clearText();
+        PanelManager.getBattlePanel().getBattleTextArea().clearText();
         PanelManager.getBattlePanel().enablePlayerButtons(false);
 
         Game.instance.getPlayer().performAttackTo(Game.instance.getBattle().getEnemy(), attackAssociated);

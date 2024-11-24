@@ -4,6 +4,7 @@ import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import game.BattleCounter;
 import ui.PanelManager;
 import game.characters.Enemy;
 import game.characters.Player;
@@ -63,7 +64,7 @@ public class Battle {
             result = "You have defeated " + enemy.toString() + " ! Good job !";
         }
 
-        PanelManager.getBattlePanel().addText(result);
+        PanelManager.getBattlePanel().getBattleTextArea().addText(result);
     }
 
     private void initializeTimer() {

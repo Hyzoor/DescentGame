@@ -18,6 +18,8 @@ public class NextBattleButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Game.instance.getPlayer().restoreHealth();
-        Game.instance.createBattle(new RandomEnemyFactory());
+        Game.instance.createBattle();
     }
+
+
 }

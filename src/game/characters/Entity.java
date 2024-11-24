@@ -25,7 +25,7 @@ abstract public class Entity {
         int damage = getStatValue("strength") * attackList.get(attackNumber).getPower();
         target.takeDamage(damage);
 
-        PanelManager.getBattlePanel().addTurnText(
+        PanelManager.getBattlePanel().getBattleTextArea().addTurnText(
                 this.toString(), target.toString(), this.attackList.get(attackNumber).getName(), target.getStatValue("health"));
     }
 

@@ -15,6 +15,7 @@ public class PlayerSelectionPanel extends JPanel {
         background = new ImageIcon("src/resources/images/combat-background.jpg").getImage();
 
         this.setLayout(new GridLayout(1, 3, 20, 20));
+        this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         this.add(new PlayerOptionPanel(new Player("Rogue")));
         this.add(new PlayerOptionPanel(new Player("Mage")));
         this.add(new PlayerOptionPanel(new Player("Knight")));

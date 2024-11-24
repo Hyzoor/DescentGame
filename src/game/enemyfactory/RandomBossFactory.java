@@ -8,7 +8,7 @@ public class RandomBossFactory implements EnemyFactory{
     private final String[] bosses;
 
     public RandomBossFactory(){
-        bosses = new String[] {"Gollum", "Boss"};
+        bosses = new String[] {"Gollum", "SunlightKeeper"};
     }
 
     @Override
