@@ -5,6 +5,9 @@ import java.util.List;
 
 import ui.PanelManager;
 
+/**
+ * Abstract class that represents an entity with stats, an attack list and a string that identifies it
+ */
 abstract public class Entity {
 
 
@@ -14,13 +17,19 @@ abstract public class Entity {
     protected List<Attack> attackList;
 
 
-    //Constructor
+    /**
+     * Constructs an entity object by default with its string identifier
+     * @param newIdentifier String that identifies the entity
+     */
     public Entity(String newIdentifier) {
         setIdentifier(newIdentifier);
     }
 
-
-    //Methods
+    /**
+     * Calculates the damage, reduces target health and shows in battle text area the turn info
+     * @param target Entity who receives the damage
+     * @param attackNumber The index of the attack from the attack list
+     */
     public void performAttackTo(Entity target, int attackNumber) {
         int damage = getStatValue("strength") * attackList.get(attackNumber).getPower();
         target.takeDamage(damage);
@@ -29,6 +38,10 @@ abstract public class Entity {
                 this.toString(), target.toString(), this.attackList.get(attackNumber).getName(), target.getStatValue("health"));
     }
 
+    /**
+     * From an amount of damage it reduces entity's health
+     * @param damage Amount of damage to be taken
+     */
     public void takeDamage(int damage) {
         if (this.isDead()) {
             return;
@@ -38,14 +51,23 @@ abstract public class Entity {
         setStatValue("health", Math.max(newHealth, 0));
     }
 
+    /**
+     * Checks if entity is dead
+     * @return true if health is 0 or less
+     */
     public boolean isDead() {
         return getStatValue("health") <= 0;
     }
 
+    /**
+     * Overrides toString method
+     * @return entity's string identifier
+     */
     @Override
     public String toString() {
         return identifier;
     }
+
 
     //------------------ SETTERS AND GETTERS ------------------//
 
@@ -65,16 +87,16 @@ abstract public class Entity {
         attackList = newAttackList;
     }
 
-    public Map<String, Integer> getStats() {
-        return stats;
-    }
-
     public int getStatValue(String stat) {
         return stats.get(stat.toLowerCase());
     }
 
     public List<Attack> getAttackList() {
         return attackList;
+    }
+
+    public Map<String, Integer> getStats() {
+        return stats;
     }
 
 }

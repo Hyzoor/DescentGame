@@ -1,18 +1,20 @@
 package game.characters;
 
+/**
+ * Represents an attack with its name and amount of power
+ */
 public class Attack {
 
     //Attributes
     private String name;
     private int power;
 
-    //Constructor
-    public Attack(String newName, int newPower) {
-        setName(newName);
-        setPower(newPower);
-    }
 
+    /**
+     * Default constructor
+     */
     public Attack(){
+        //Needed for JSON Mapping
     }
 
 //------------------ SETTERS AND GETTERS ------------------//

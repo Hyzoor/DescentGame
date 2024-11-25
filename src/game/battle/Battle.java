@@ -4,11 +4,14 @@ import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import game.BattleCounter;
 import ui.PanelManager;
 import game.characters.Enemy;
 import game.characters.Player;
 
+/**
+ * This class manages the battle between player and enemies,
+ * manages turns and shows results
+ */
 public class Battle {
 
     //Attributes
@@ -17,7 +20,12 @@ public class Battle {
     private Timer timer;
     private boolean isPlayersTurn;
 
-    //Constructor
+    /**
+     * Battle class constructor
+     *
+     * @param newPlayer
+     * @param newEnemy
+     */
     public Battle(Player newPlayer, Enemy newEnemy) {
         isPlayersTurn = true;
         setPlayer(newPlayer);
@@ -25,8 +33,9 @@ public class Battle {
         initializeTimer();
     }
 
-
-    //Methods
+    /**
+     * Changes turn while player and enemy aren't dead
+     */
     public void rotate() {
         if (isAnyoneDead()) {
             end();
@@ -35,27 +44,43 @@ public class Battle {
         isPlayersTurn = !isPlayersTurn;
     }
 
-    public boolean isPlayerWinner(){
+    /**
+     * When someone dies, check if the player was defeated
+     *
+     * @return true if player still alive, false otherwise
+     */
+    public boolean isPlayerWinner() {
         return !player.isDead();
     }
 
+    /**
+     * Check if someone is dead
+     *
+     * @return true if someone is dead
+     */
     public boolean isAnyoneDead() {
         return player.isDead() || enemy.isDead();
     }
 
+    /**
+     * Ends the battle:
+     */
     public void end() {
         timer.stop();
         PanelManager.getBattlePanel().enablePlayerButtons(false);
 
-        if(isPlayerWinner()){
+        if (isPlayerWinner()) {
             PanelManager.getBattlePanel().addButtonsAfterWinning();
-        }else{
+        } else {
             PanelManager.getBattlePanel().addButtonsAfterLosing();
         }
 
         showResults();
     }
 
+    /**
+     * Shows in battle text area the results
+     */
     public void showResults() {
         String result;
         if (player.isDead()) {
@@ -89,19 +114,19 @@ public class Battle {
 
 //------------------ SETTERS AND GETTERS ------------------//
 
-    public void setPlayer(Player newPlayer) {
-        player = newPlayer;
-    }
-
-    public void setEnemy(Enemy newEnemy) {
-        enemy = newEnemy;
-    }
-
     public Player getPlayer() {
         return player;
     }
 
+    public void setPlayer(Player newPlayer) {
+        player = newPlayer;
+    }
+
     public Enemy getEnemy() {
         return enemy;
+    }
+
+    public void setEnemy(Enemy newEnemy) {
+        enemy = newEnemy;
     }
 }
