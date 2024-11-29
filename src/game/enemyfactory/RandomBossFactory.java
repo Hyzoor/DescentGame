@@ -12,7 +12,7 @@ public class RandomBossFactory implements EnemyFactory{
     }
 
     @Override
-    public Enemy createEnemy(){
+    public Enemy create(){
         Random random = new Random();
         int i = random.nextInt(bosses.length);
 

@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import game.characters.Player;
+import settings.Settings;
 import ui.panels.otherpanels.PlayerOptionPanel;
 
 public class PlayerSelectionPanel extends JPanel {
@@ -12,7 +13,10 @@ public class PlayerSelectionPanel extends JPanel {
 
     public PlayerSelectionPanel() {
 
-        background = new ImageIcon("src/resources/images/combat-background.jpg").getImage();
+        String imagesPath = Settings.getInstance().getFilePaths().get("images");
+
+        ImageIcon imageIcon = new ImageIcon(imagesPath + "combat-background.jpg");
+        background = imageIcon.getImage();
 
         this.setLayout(new GridLayout(1, 3, 20, 20));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));

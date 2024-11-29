@@ -6,6 +6,7 @@ import java.awt.*;
 import game.characters.Enemy;
 import game.characters.Entity;
 import game.characters.Player;
+import settings.Settings;
 
 public class EntityPanel extends JPanel {
 
@@ -22,10 +23,14 @@ public class EntityPanel extends JPanel {
 
     private ImageIcon getEntityImage(Entity entity) {
 
+        String playersSpritesDirectory = Settings.getInstance().getFilePaths().get("playersSprites");
+        String enemiesSpritesDirectory = Settings.getInstance().getFilePaths().get("enemiesSprites");
+
+
         if (entity instanceof Enemy) {
-            return new ImageIcon("src/resources/images/characters/enemies/" + entity.toString().toLowerCase() + ".png");
+            return new ImageIcon(enemiesSpritesDirectory + entity.toString().toLowerCase() + ".png");
         } else if (entity instanceof Player) {
-            return new ImageIcon("src/resources/images/characters/players/" + entity.toString().toLowerCase() + ".png");
+            return new ImageIcon(playersSpritesDirectory + entity.toString().toLowerCase() + ".png");
         }
 
         return null;

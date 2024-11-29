@@ -14,7 +14,7 @@ public class RandomEnemyFactory implements EnemyFactory{
     }
 
     @Override
-    public Enemy createEnemy(){
+    public Enemy create(){
         Random random = new Random();
         int i = random.nextInt(enemies.length);
 

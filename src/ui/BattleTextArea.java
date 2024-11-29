@@ -46,8 +46,7 @@ public class BattleTextArea extends JTextArea {
 
             File fontFile = new File("src/resources/fonts/superlegendboy.ttf");
             customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-            customFont = customFont.deriveFont(Font.PLAIN, 16);
-            this.setFont(customFont);
+            this.setFont(customFont.deriveFont(Font.PLAIN, 16));
 
         } catch(IOException e){
             System.err.print("Couldnt open font file correctly");

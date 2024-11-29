@@ -17,6 +17,6 @@ public class ChangeClassButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         BattleCounter.reset();
-        PanelManager.changeToPlayerSelectionPanel();
+        PanelManager.changeToPlayerSelection();
     }
 }

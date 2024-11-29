@@ -4,6 +4,6 @@ import game.characters.Enemy;
 
 public interface EnemyFactory {
 
-    public Enemy createEnemy();
+    public Enemy create();
 
 }

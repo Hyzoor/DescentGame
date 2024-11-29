@@ -1,6 +1,8 @@
 package ui.buttons;
 
 import game.Game;
+import game.characters.Player;
+import settings.Settings;
 import ui.PanelManager;
 
 import javax.swing.JButton;
@@ -14,7 +16,7 @@ public class PowerUpButton extends JButton implements ActionListener {
 
     public PowerUpButton(String newStatToIncrease) {
         statToIncrease = newStatToIncrease.toLowerCase();
-        this.setText("Get 15% more " + statToIncrease);
+        this.setText("Get " + statToIncrease + " power up !");
         this.addActionListener(this);
     }
 
@@ -22,9 +24,16 @@ public class PowerUpButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        int actualValue = Game.instance.getPlayer().getStats().get(statToIncrease);
-        Game.instance.getPlayer().setStatValue(statToIncrease, (int) (actualValue * 1.15));
+        Player player = Game.getInstance().getPlayer();
 
-        PanelManager.getBattlePanel().getButtonsAfterWinPanel().enablePowerUpButtons(false);
+        double powerUpMultiplier = Settings.getInstance().getMultipliers().get("powerUp");
+
+        int actualValue = player.getStats().get(statToIncrease);
+        int newValue = (int) (actualValue * powerUpMultiplier);
+
+        player.setStatValue(statToIncrease, newValue);
+
+
+        PanelManager.getBattlePanel().enablePowerUpButtons(false);
     }
 }

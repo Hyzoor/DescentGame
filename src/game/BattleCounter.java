@@ -7,7 +7,7 @@ public class BattleCounter {
 
 
     public BattleCounter() {
-        count = 0;
+        reset();
     }
 
     public static void increment() {

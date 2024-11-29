@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import settings.Settings;
 import ui.PanelManager;
 
 public class TitleScreenStartButton extends JButton implements ActionListener {
@@ -21,11 +22,12 @@ public class TitleScreenStartButton extends JButton implements ActionListener {
         this.setContentAreaFilled(false);
         this.setFocusPainted(false);
 
-        this.setIcon(new ImageIcon("src/resources/images/start-button.png"));
+        String imagesPath = Settings.getInstance().getFilePaths().get("images");
+        this.setIcon(new ImageIcon(imagesPath + "start-button.png"));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        PanelManager.changeToPlayerSelectionPanel();
+        PanelManager.changeToPlayerSelection();
     }
 }

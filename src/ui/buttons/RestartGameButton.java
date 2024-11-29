@@ -18,10 +18,13 @@ public class RestartGameButton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        Player actualPlayer = Game.getInstance().getPlayer();
+        Player playerWithoutUpgrades = new Player(actualPlayer.toString());
+        Game.getInstance().setPlayer(playerWithoutUpgrades);
+
         BattleCounter.reset();
-        String actualPlayerClass = Game.instance.getPlayer().toString();
-        Game.instance.setPlayer(new Player(actualPlayerClass));
-        Game.instance.createBattle();
-        PanelManager.changeToBattlePanel();
+        Game.getInstance().createBattle();
+        PanelManager.changeToBattle();
     }
 }

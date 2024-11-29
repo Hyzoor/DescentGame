@@ -1,0 +1,19 @@
+{
+    "filePaths" : {
+        "enemiesJsons": "src/resources/characters/enemies/",
+        "playersJsons": "src/resources/characters/players/",
+
+        "playersSprites": "src/resources/images/characters/players/",
+        "enemiesSprites": "src/resources/images/characters/enemies/",
+
+        "fonts": "src/fonts/",
+        "images": "src/resources/images/"
+    },
+
+    "multipliers" : {
+        "defense" : 0.4,
+        "powerUp" : 1.3
+    }
+
+
+}

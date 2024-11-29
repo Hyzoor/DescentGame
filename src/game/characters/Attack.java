@@ -10,13 +10,6 @@ public class Attack {
     private int power;
 
 
-    /**
-     * Default constructor
-     */
-    public Attack(){
-        //Needed for JSON Mapping
-    }
-
 //------------------ SETTERS AND GETTERS ------------------//
 
     public void setName(String newName) {

@@ -1,11 +1,11 @@
 package ui.buttons;
 
-import game.Game;
-import game.enemyfactory.RandomEnemyFactory;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import game.Game;
+import game.characters.Player;
 
 public class NextBattleButton extends JButton implements ActionListener {
 
@@ -17,8 +17,10 @@ public class NextBattleButton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Game.instance.getPlayer().restoreHealth();
-        Game.instance.createBattle();
+        Player player = Game.getInstance().getPlayer();
+
+        player.restoreHealth();
+        Game.getInstance().createBattle();
     }
 
 

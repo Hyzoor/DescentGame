@@ -3,6 +3,8 @@ package game.characters;
 import java.util.Map;
 import java.util.List;
 
+import game.Game;
+import settings.Settings;
 import ui.PanelManager;
 
 /**
@@ -18,7 +20,8 @@ abstract public class Entity {
 
 
     /**
-     * Constructs an entity object by default with its string identifier
+     * Constructs an entity object by default setting just the identifier
+     *
      * @param newIdentifier String that identifies the entity
      */
     public Entity(String newIdentifier) {
@@ -27,19 +30,21 @@ abstract public class Entity {
 
     /**
      * Calculates the damage, reduces target health and shows in battle text area the turn info
-     * @param target Entity who receives the damage
-     * @param attackNumber The index of the attack from the attack list
+     *
+     * @param target    Entity who receives the damage
+     * @param attack    Attack selected to perform
      */
-    public void performAttackTo(Entity target, int attackNumber) {
-        int damage = getStatValue("strength") * attackList.get(attackNumber).getPower();
+    public void performAttackTo(Entity target, Attack attack) {
+        int damage = getStatValue("strength") * attack.getPower();
         target.takeDamage(damage);
 
         PanelManager.getBattlePanel().getBattleTextArea().addTurnText(
-                this.toString(), target.toString(), this.attackList.get(attackNumber).getName(), target.getStatValue("health"));
+                this.toString(), target.toString(), attack.getName(), target.getStatValue("health"));
     }
 
     /**
-     * From an amount of damage it reduces entity's health
+     * From an amount of damage, reduces entity's health
+     *
      * @param damage Amount of damage to be taken
      */
     public void takeDamage(int damage) {
@@ -47,12 +52,16 @@ abstract public class Entity {
             return;
         }
 
-        int newHealth = getStatValue("health") - (int) (damage / (getStatValue("defense") * 0.4));
+        int damageTaken = (int) (damage / (getStatValue("defense") * Settings.getInstance().getMultipliers().get("defense")));
+        int newHealth = getStatValue("health") - damageTaken;
+
+
         setStatValue("health", Math.max(newHealth, 0));
     }
 
     /**
      * Checks if entity is dead
+     *
      * @return true if health is 0 or less
      */
     public boolean isDead() {
@@ -61,6 +70,7 @@ abstract public class Entity {
 
     /**
      * Overrides toString method
+     *
      * @return entity's string identifier
      */
     @Override

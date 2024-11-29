@@ -1,71 +1,82 @@
 package game;
 
 import game.battle.Battle;
+import game.characters.Enemy;
 import game.characters.Player;
-import game.enemyfactory.EnemyFactory;
-import game.enemyfactory.RandomBossFactory;
-import game.enemyfactory.RandomDifficultEnemyFactory;
-import game.enemyfactory.RandomEnemyFactory;
+import game.enemyfactory.*;
+
 import ui.PanelManager;
-import ui.mainframe.MainFrame;
 
-import java.util.Random;
-
+/**
+ * Manages the game logic, the player, creates battles and checks when has the game finished
+ */
 public class Game {
 
-    // Singleton
-    public static Game instance;
-
-    private final MainFrame mainFrame;
+    private static Game instance;
     private Player player;
+    private Enemy enemy;
     private Battle battle;
 
+
     private Game() {
-        mainFrame = new MainFrame();
         BattleCounter.reset();
     }
 
-    public static void start() {
-        if (instance != null) {
-            return;
+    /**
+     * @return Returns game object instance if already exists one, creates one and returns it otherwise
+     */
+    public static Game getInstance() {
+        if (instance == null) {
+            instance = new Game();
         }
-        instance = new Game();
+
+        return instance;
     }
 
-    // Methods
-    public void createBattle(){
-        int battlesPlayed = BattleCounter.get();
+    /**
+     * Creates a new battle with a random enemy or boss depending on how many battles have been played
+     */
+    public void createBattle() {
 
-        if (BattleCounter.hasReachedMax()) {
+        if (isTheGameFinished()) {
             endGame();
             return;
         }
 
-        if(battlesPlayed < 4){
-            createBattle(new RandomEnemyFactory());
-        }else if(battlesPlayed < 8){
-            createBattle(new RandomDifficultEnemyFactory());
-        }else{
-            createBattle(new RandomBossFactory());
+        int battlesPlayed = BattleCounter.get();
+        EnemyFactory enemyFactory;
+
+        if (battlesPlayed < 3) {
+            enemyFactory = new RandomEnemyFactory();
+        } else if (battlesPlayed < 7) {
+            enemyFactory = new RandomDifficultEnemyFactory();
+        } else {
+            enemyFactory = new RandomBossFactory();
         }
+
+        setEnemy(enemyFactory.create());
+        createBattle(enemy);
     }
 
-    private void createBattle(EnemyFactory enemyFactory) {
-        battle = new Battle(player, enemyFactory.createEnemy());
+    private boolean isTheGameFinished(){
+        return BattleCounter.hasReachedMax();
+    }
+
+    private void createBattle(Enemy enemy) {
+        battle = new Battle(player, enemy);
         BattleCounter.increment();
+
+        PanelManager.getBattlePanel().reset();
         PanelManager.getBattlePanel().getBattleTextArea().showBattleCount();
-        PanelManager.getBattlePanel().updatePanel();
     }
 
     private void endGame() {
         PanelManager.getBattlePanel().getBattleTextArea().addText("You have reach level " + BattleCounter.get() + ", you have win!");
+        //Todo final buttons or credits screen
     }
 
     //------------------ SETTERS Y GETTERS ------------------//
 
-    public MainFrame getMainFrame() {
-        return mainFrame;
-    }
 
     public Player getPlayer() {
         return player;
@@ -75,7 +86,16 @@ public class Game {
         player = newPlayer;
     }
 
+    public Enemy getEnemy(){
+        return enemy;
+    }
+
+    public void setEnemy(Enemy newEnemy){
+        enemy = newEnemy;
+    }
+
     public Battle getBattle() {
         return battle;
     }
+
 }

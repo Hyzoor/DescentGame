@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import game.Game;
-import game.enemyfactory.RandomEnemyFactory;
 import ui.PanelManager;
 import game.characters.Player;
 
@@ -24,9 +23,10 @@ public class SelectClassButton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Game.instance.setPlayer(new Player(playerIdentifier));
-        Game.instance.createBattle();
+        Player newPlayer = new Player(playerIdentifier);
+        Game.getInstance().setPlayer(newPlayer);
+        Game.getInstance().createBattle();
 
-        PanelManager.changeToBattlePanel();
+        PanelManager.changeToBattle();
     }
 }

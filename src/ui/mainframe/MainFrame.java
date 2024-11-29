@@ -3,23 +3,32 @@ package ui.mainframe;
 import javax.swing.*;
 import java.awt.*;
 
+import game.Game;
 import ui.PanelManager;
 
 public class MainFrame extends JFrame {
 
+    private static MainFrame instance;
+
     // Constructor
-    public MainFrame() {
+    private MainFrame() {
 
-        this.setTitle("The Descent - RogueLike Game");
-        this.setSize(1200, 750);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new BorderLayout());
-        this.setLocationRelativeTo(null);
+        setTitle("The Descent - RogueLike Game");
+        setSize(1200, 750);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
 
-        this.add(PanelManager.getTitleScreenPanel());
+        setVisible(true);
+    }
 
-        this.setVisible(true);
+    //Singleton
+    public static MainFrame getInstance(){
+        if(instance == null){
+            instance = new MainFrame();
+        }
+        return instance;
     }
 
 }

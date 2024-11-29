@@ -1,7 +1,10 @@
 package ui;
 
 import game.Game;
+import ui.mainframe.MainFrame;
 import ui.panels.mainpanels.*;
+
+import java.awt.*;
 
 public class PanelManager {
 
@@ -9,34 +12,37 @@ public class PanelManager {
     private final static TitleScreenPanel titleScreenPanel;
     private final static PlayerSelectionPanel playerSelectionPanel;
     private final static BattlePanel battlePanel;
+    private final static MainFrame mainFrame;
 
     static {
         titleScreenPanel = new TitleScreenPanel();
         playerSelectionPanel = new PlayerSelectionPanel();
         battlePanel = new BattlePanel();
+        mainFrame = MainFrame.getInstance();
     }
 
     // Methods
-    public static void changeToPlayerSelectionPanel() {
-        Game.instance.getMainFrame().getContentPane().removeAll();
-        Game.instance.getMainFrame().add(playerSelectionPanel);
-        Game.instance.getMainFrame().repaint();
-        Game.instance.getMainFrame().revalidate();
+    public static void changeToPlayerSelection() {
+        mainFrame.getContentPane().removeAll();
+        mainFrame.add(playerSelectionPanel);
+        updateMainFrame();
     }
 
-    public static void changeToTittleScreenPanel() {
-        Game.instance.getMainFrame().getContentPane().removeAll();
-        Game.instance.getMainFrame().add(titleScreenPanel);
-        Game.instance.getMainFrame().repaint();
-        Game.instance.getMainFrame().revalidate();
+    public static void changeToTittleScreen() {
+        mainFrame.getContentPane().removeAll();
+        mainFrame.add(titleScreenPanel);
+        updateMainFrame();
     }
 
-    public static void changeToBattlePanel() {
-        Game.instance.getMainFrame().getContentPane().removeAll();
-        PanelManager.battlePanel.updatePanel();
-        Game.instance.getMainFrame().add(battlePanel);
-        Game.instance.getMainFrame().repaint();
-        Game.instance.getMainFrame().revalidate();
+    public static void changeToBattle() {
+        mainFrame.getContentPane().removeAll();
+        mainFrame.add(battlePanel);
+        updateMainFrame();
+    }
+
+    private static void updateMainFrame(){
+        mainFrame.repaint();
+        mainFrame.revalidate();
     }
 
     //------------------ SETTERS AND GETTERS ------------------//

@@ -9,7 +9,7 @@ import game.characters.Enemy;
 import game.characters.Player;
 
 /**
- * This class manages the battle between player and enemies,
+ * This class manages the battle between player and an enemy,
  * manages turns and shows results
  */
 public class Battle {
@@ -23,8 +23,8 @@ public class Battle {
     /**
      * Battle class constructor
      *
-     * @param newPlayer
-     * @param newEnemy
+     * @param newPlayer Player who takes part in the battle
+     * @param newEnemy  Enemy who is against the player
      */
     public Battle(Player newPlayer, Enemy newEnemy) {
         isPlayersTurn = true;
@@ -45,7 +45,7 @@ public class Battle {
     }
 
     /**
-     * When someone dies, check if the player was defeated
+     * When someone dies, check if the player is dead
      *
      * @return true if player still alive, false otherwise
      */
@@ -56,18 +56,18 @@ public class Battle {
     /**
      * Check if someone is dead
      *
-     * @return true if someone is dead
+     * @return true if either player or enemy is dead, false if both are alive
      */
     public boolean isAnyoneDead() {
         return player.isDead() || enemy.isDead();
     }
 
     /**
-     * Ends the battle:
+     * Ends the battle and enables the winning or losing buttons
      */
     public void end() {
         timer.stop();
-        PanelManager.getBattlePanel().enablePlayerButtons(false);
+        PanelManager.getBattlePanel().enableAttackButtons(false);
 
         if (isPlayerWinner()) {
             PanelManager.getBattlePanel().addButtonsAfterWinning();
@@ -104,7 +104,7 @@ public class Battle {
 
                 enemy.performAttackTo(player);
                 rotate();
-                PanelManager.getBattlePanel().enablePlayerButtons(true);
+                PanelManager.getBattlePanel().enableAttackButtons(true);
             }
         });
 

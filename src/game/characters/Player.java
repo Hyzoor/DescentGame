@@ -1,21 +1,23 @@
 package game.characters;
 
+import game.Game;
 import game.JsonMapper;
+import settings.Settings;
 
 public class Player extends Entity {
 
     /**
      * Constructs player from a json file using JsonMapper
-     * @see JsonMapper
+     *
      * @param newIdentifier String identifier. Has to be named same as the json file
+     * @see JsonMapper
      */
     public Player(String newIdentifier) {
         super(newIdentifier);
 
-        String jsonFilepath = "src/game/characters/data/players/" + identifier.toLowerCase() + ".json";
-        JsonMapper.mapEntity(jsonFilepath, this);
+        String json = Settings.getInstance().getFilePaths().get("playersJsons") + identifier.toLowerCase() + ".json";
+        JsonMapper.mapObject(json, this);
     }
-
 
     /**
      * Restore full player's health.
