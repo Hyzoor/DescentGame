@@ -2,26 +2,18 @@
   "identifier": "Goblin",
 
   "stats": {
-    "health": 30,
-    "strength": 20,
+    "health": 70,
+    "strength": 25,
     "defense": 20
   },
 
   "attackList": [
     {
-      "name": "Default Enemy Attack 1",
+      "name": "Dagger Strike",
       "power": 2
     },
     {
-      "name": "Default Enemy Attack 2",
-      "power": 5
-    },
-    {
-      "name": "Default Enemy Attack 3",
-      "power": 3
-    },
-    {
-      "name": "Default Enemy Attack 4",
+      "name": "Sneak Attack",
       "power": 3
     }
   ]

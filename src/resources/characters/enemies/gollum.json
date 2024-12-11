@@ -2,26 +2,18 @@
   "identifier": "Gollum",
 
   "stats": {
-    "health": 40,
-    "strength": 15,
-    "defense": 25
+    "health": 200,
+    "strength": 40,
+    "defense": 40
   },
 
   "attackList": [
     {
-      "name": "Default Enemy Attack 1",
-      "power": 2
+      "name": "Precious Slash",
+      "power": 6
     },
     {
-      "name": "Default Enemy Attack 2",
-      "power": 5
-    },
-    {
-      "name": "Default Enemy Attack 3",
-      "power": 3
-    },
-    {
-      "name": "Default Enemy Attack 4",
+      "name": "Smash of Madness",
       "power": 3
     }
   ]

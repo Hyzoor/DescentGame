@@ -10,7 +10,7 @@ public class RandomEnemyFactory implements EnemyFactory{
     private final String[] enemies;
 
     public RandomEnemyFactory(){
-        enemies = new String[]{"Beast", "Demon", "Goblin", "Ghost"};
+        enemies = new String[]{"Reaper", "Demon", "Goblin", "Ghost"};
     }
 
     @Override

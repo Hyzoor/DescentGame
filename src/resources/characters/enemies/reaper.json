@@ -1,19 +1,19 @@
 {
-  "identifier": "Demon",
+  "identifier": "Reaper",
 
   "stats": {
     "health": 100,
-    "strength": 25,
-    "defense": 20
+    "strength": 30,
+    "defense": 10
   },
 
   "attackList": [
     {
-      "name": "Hellfire",
+      "name": "Soul Reap",
       "power": 4
     },
     {
-      "name": "Demonic Slash",
+      "name": "Grim Wail",
       "power": 3
     }
   ]

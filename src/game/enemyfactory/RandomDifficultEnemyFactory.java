@@ -3,13 +3,14 @@ package game.enemyfactory;
 import java.util.Random;
 
 import game.characters.Enemy;
+import settings.Settings;
 
 public class RandomDifficultEnemyFactory implements EnemyFactory{
 
     private final String[] enemies;
 
     public RandomDifficultEnemyFactory(){
-        enemies = new String[]{"Beast", "Demon", "Goblin", "Ghost"};
+        enemies = new String[]{"Reaper", "Demon", "Goblin", "Ghost"};
     }
 
     @Override
@@ -27,7 +28,9 @@ public class RandomDifficultEnemyFactory implements EnemyFactory{
     private void increaseEnemyStats(Enemy enemy){
         for(String stat : enemy.getStats().keySet()){
             int actualValue = enemy.getStatValue(stat);
-            enemy.setStatValue(stat, (int) (actualValue * 1.75));
+
+            double difficultyMultiplier = Settings.getInstance().getMultipliers().get("difficulty");
+            enemy.setStatValue(stat, (int) (actualValue * difficultyMultiplier));
         }
     }
 

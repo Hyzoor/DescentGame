@@ -2,27 +2,19 @@
   "identifier": "SunlightKeeper",
 
   "stats": {
-    "health": 40,
-    "strength": 15,
-    "defense": 25
+    "health": 250,
+    "strength": 50,
+    "defense": 35
   },
 
   "attackList": [
     {
-      "name": "Default Enemy Attack 1",
+      "name": "Sunstrike",
+      "power": 6
+    },
+    {
+      "name": "Radiant Shield",
       "power": 2
-    },
-    {
-      "name": "Default Enemy Attack 2",
-      "power": 5
-    },
-    {
-      "name": "Default Enemy Attack 3",
-      "power": 3
-    },
-    {
-      "name": "Default Enemy Attack 4",
-      "power": 3
     }
   ]
 }

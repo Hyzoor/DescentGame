@@ -58,7 +58,7 @@ public class Game {
         createBattle(enemy);
     }
 
-    private boolean isTheGameFinished(){
+    private boolean isTheGameFinished() {
         return BattleCounter.hasReachedMax();
     }
 
@@ -72,8 +72,11 @@ public class Game {
 
     private void endGame() {
         PanelManager.getBattlePanel().getBattleTextArea().addText("You have reach level " + BattleCounter.get() + ", you have win!");
-        //Todo final buttons or credits screen
+        PanelManager.getBattlePanel().addEndGameButtons();
+
     }
+
+
 
     //------------------ SETTERS Y GETTERS ------------------//
 
@@ -86,11 +89,11 @@ public class Game {
         player = newPlayer;
     }
 
-    public Enemy getEnemy(){
+    public Enemy getEnemy() {
         return enemy;
     }
 
-    public void setEnemy(Enemy newEnemy){
+    public void setEnemy(Enemy newEnemy) {
         enemy = newEnemy;
     }
 

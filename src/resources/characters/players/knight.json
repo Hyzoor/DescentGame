@@ -2,28 +2,28 @@
   "identifier": "Knight",
 
   "stats": {
-    "max_health": 50,
-    "health": 50,
-    "strength": 20,
-    "defense": 30
+    "max_health": 120,
+    "health": 120,
+    "strength": 30,
+    "defense": 25
   },
 
   "attackList": [
     {
       "name": "Sword Strike",
-      "power": 2
+      "power": 3
     },
     {
       "name": "Drain Mace",
-      "power": 5
+      "power": 2
     },
     {
       "name": "Shield Reduction",
       "power": 1
     },
     {
-      "name": "Attack number 4",
-      "power": 3
+      "name": "Cleave",
+      "power": 4
     }
   ]
 }

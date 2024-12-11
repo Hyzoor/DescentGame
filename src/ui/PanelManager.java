@@ -12,12 +12,14 @@ public class PanelManager {
     private final static TitleScreenPanel titleScreenPanel;
     private final static PlayerSelectionPanel playerSelectionPanel;
     private final static BattlePanel battlePanel;
+    private final static CreditsPanel creditsPanel;
     private final static MainFrame mainFrame;
 
     static {
         titleScreenPanel = new TitleScreenPanel();
         playerSelectionPanel = new PlayerSelectionPanel();
         battlePanel = new BattlePanel();
+        creditsPanel = new CreditsPanel();
         mainFrame = MainFrame.getInstance();
     }
 
@@ -37,6 +39,12 @@ public class PanelManager {
     public static void changeToBattle() {
         mainFrame.getContentPane().removeAll();
         mainFrame.add(battlePanel);
+        updateMainFrame();
+    }
+
+    public static void changeToCredits(){
+        mainFrame.getContentPane().removeAll();
+        mainFrame.add(creditsPanel);
         updateMainFrame();
     }
 

@@ -7,6 +7,7 @@ import java.awt.*;
 import game.Game;
 import settings.Settings;
 import ui.BattleTextArea;
+import ui.buttons.ShowCreditsButton;
 import ui.panels.otherpanels.AttackButtonsPanel;
 import ui.panels.otherpanels.ButtonsAfterLostPanel;
 import ui.panels.otherpanels.ButtonsAfterWinPanel;
@@ -57,6 +58,11 @@ public class BattlePanel extends JPanel {
         southPanel.remove(attackButtonsPanel);
         southPanel.add(buttonsAfterWinPanel);
         redraw();
+    }
+
+    public void addEndGameButtons(){
+        southPanel.remove(buttonsAfterWinPanel);
+        southPanel.add(new ShowCreditsButton());
     }
 
     public void addButtonsAfterLosing() {

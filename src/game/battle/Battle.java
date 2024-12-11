@@ -1,6 +1,7 @@
 package game.battle;
 
 import javax.swing.Timer;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -83,12 +84,13 @@ public class Battle {
      */
     public void showResults() {
         String result;
-        if (player.isDead()) {
+                if (player.isDead()) {
             result = enemy.toString() + " has defeated you ...";
         } else {
             result = "You have defeated " + enemy.toString() + " ! Good job !";
         }
 
+        PanelManager.getBattlePanel().getBattleTextArea().clearText();
         PanelManager.getBattlePanel().getBattleTextArea().addText(result);
     }
 
