@@ -1,5 +1,6 @@
 {
   "identifier": "SunlightKeeper",
+  "enemyType":"BOSS",
 
   "stats": {
     "health": 250,

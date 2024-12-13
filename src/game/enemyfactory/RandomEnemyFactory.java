@@ -3,21 +3,23 @@ package game.enemyfactory;
 import java.util.Random;
 
 import game.characters.Enemy;
+import game.characters.EnemyType;
 
 
-public class RandomEnemyFactory implements EnemyFactory{
-
-    private final String[] enemies;
+public class RandomEnemyFactory implements EnemyFactory {
 
     public RandomEnemyFactory(){
-        enemies = new String[]{"Reaper", "Demon", "Goblin", "Ghost"};
+        initializeAllEnemiesAvailable();
     }
 
     @Override
-    public Enemy create(){
+    public Enemy create() {
         Random random = new Random();
-        int i = random.nextInt(enemies.length);
+        int i;
+        do {
+            i = random.nextInt(enemiesAvailable.size());
+        } while (enemiesAvailable.get(i).getEnemyType() != EnemyType.EASY);
 
-        return new Enemy(enemies[i]);
+        return new Enemy(enemiesAvailable.get(i).toString());
     }
 }

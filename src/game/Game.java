@@ -16,10 +16,12 @@ public class Game {
     private Player player;
     private Enemy enemy;
     private Battle battle;
+    private BattleCounter battleCounter;
 
 
     private Game() {
-        BattleCounter.reset();
+        battleCounter = new BattleCounter();
+        battleCounter.reset();
     }
 
     /**
@@ -43,12 +45,17 @@ public class Game {
             return;
         }
 
-        int battlesPlayed = BattleCounter.get();
+        int battlesPlayed = battleCounter.get();
+        int maxBattlesAllowed = battleCounter.getMaxBattles();
         EnemyFactory enemyFactory;
 
-        if (battlesPlayed < 3) {
+
+        int earlyGame = maxBattlesAllowed / 3; // Considering early as the first 1/3
+        int midGame = (3 * maxBattlesAllowed / 4); // Considering midGame as the first 3/4 of the game
+
+        if (battlesPlayed < earlyGame) {
             enemyFactory = new RandomEnemyFactory();
-        } else if (battlesPlayed < 7) {
+        } else if (battlesPlayed < midGame) {
             enemyFactory = new RandomDifficultEnemyFactory();
         } else {
             enemyFactory = new RandomBossFactory();
@@ -59,23 +66,22 @@ public class Game {
     }
 
     private boolean isTheGameFinished() {
-        return BattleCounter.hasReachedMax();
+        return battleCounter.hasReachedMax();
     }
 
     private void createBattle(Enemy enemy) {
         battle = new Battle(player, enemy);
-        BattleCounter.increment();
+        battleCounter.increment();
 
         PanelManager.getBattlePanel().reset();
         PanelManager.getBattlePanel().getBattleTextArea().showBattleCount();
     }
 
     private void endGame() {
-        PanelManager.getBattlePanel().getBattleTextArea().addText("You have reach level " + BattleCounter.get() + ", you have win!");
+        PanelManager.getBattlePanel().getBattleTextArea().addText("You have reach level " + battleCounter.get() + ", you have win!");
         PanelManager.getBattlePanel().addEndGameButtons();
 
     }
-
 
 
     //------------------ SETTERS Y GETTERS ------------------//
@@ -101,4 +107,7 @@ public class Game {
         return battle;
     }
 
+    public BattleCounter getBattleCounter() {
+        return battleCounter;
+    }
 }

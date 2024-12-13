@@ -11,6 +11,8 @@ import settings.Settings;
  */
 public class Enemy extends Entity {
 
+    private EnemyType enemyType;
+
     /**
      * Constructs enemy from a json file using JsonMapper
      *
@@ -45,5 +47,9 @@ public class Enemy extends Entity {
         return attackList.get(n);
     }
 
+    //------------------ GETTERS ------------------//
 
+    public EnemyType getEnemyType(){
+        return this.enemyType;
+    }
 }

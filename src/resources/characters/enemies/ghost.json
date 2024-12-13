@@ -1,5 +1,6 @@
 {
   "identifier": "Ghost",
+  "enemyType":"EASY",
 
   "stats": {
     "health": 90,

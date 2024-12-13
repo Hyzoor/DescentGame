@@ -1,6 +1,7 @@
 package ui;
 
 import game.BattleCounter;
+import game.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,7 +33,7 @@ public class BattleTextArea extends JTextArea {
 
     public void showBattleCount() {
         clearText();
-        addText("Actual Battle : " + BattleCounter.get());
+        addText("Actual Battle : " + Game.getInstance().getBattleCounter().get());
     }
 
     private void setBackground(){

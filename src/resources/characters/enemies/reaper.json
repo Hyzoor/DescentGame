@@ -1,5 +1,6 @@
 {
   "identifier": "Reaper",
+  "enemyType":"DIFFICULT",
 
   "stats": {
     "health": 100,

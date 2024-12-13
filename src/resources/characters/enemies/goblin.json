@@ -1,5 +1,6 @@
 {
   "identifier": "Goblin",
+  "enemyType":"EASY",
 
   "stats": {
     "health": 70,

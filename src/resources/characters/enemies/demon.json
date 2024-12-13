@@ -1,5 +1,6 @@
 {
   "identifier": "Demon",
+  "enemyType":"DIFFICULT",
 
   "stats": {
     "health": 100,

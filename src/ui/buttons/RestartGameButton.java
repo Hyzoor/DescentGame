@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import game.BattleCounter;
 import game.Game;
 import game.characters.Player;
 import ui.PanelManager;
@@ -23,7 +22,7 @@ public class RestartGameButton extends JButton implements ActionListener {
         Player playerWithoutUpgrades = new Player(actualPlayer.toString());
         Game.getInstance().setPlayer(playerWithoutUpgrades);
 
-        BattleCounter.reset();
+        Game.getInstance().getBattleCounter().reset();
         Game.getInstance().createBattle();
         PanelManager.changeToBattle();
     }
