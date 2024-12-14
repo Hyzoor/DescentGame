@@ -3,14 +3,18 @@ package ui.mainframe;
 import javax.swing.*;
 import java.awt.*;
 
-import game.Game;
-import ui.PanelManager;
-
+/**
+ * The main window of the game, configured with a title, size, layout, and other settings.
+ * This class follows the Singleton pattern to ensure only one instance of the window is created.
+ */
 public class MainFrame extends JFrame {
 
     private static MainFrame instance;
 
-    // Constructor
+    /**
+     * Private constructor to prevent instantiation from outside the class.
+     * Initializes the main window with title, size, layout, and other properties.
+     */
     private MainFrame() {
 
         setTitle("The Descent - RogueLike Game");
@@ -23,13 +27,16 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    //Singleton
-    public static MainFrame getInstance(){
-        if(instance == null){
+    /**
+     * Retrieves the single instance of the MainFrame. If an instance doesn't exist, it creates one.
+     *
+     * @return the single instance of MainFrame
+     */
+    public static MainFrame getInstance() {
+        if (instance == null) {
             instance = new MainFrame();
         }
         return instance;
     }
 
 }
-

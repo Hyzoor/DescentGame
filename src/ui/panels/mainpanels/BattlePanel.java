@@ -3,7 +3,6 @@ package ui.panels.mainpanels;
 import javax.swing.*;
 import java.awt.*;
 
-
 import game.Game;
 import settings.Settings;
 import ui.BattleTextArea;
@@ -13,46 +12,84 @@ import ui.panels.otherpanels.ButtonsAfterLostPanel;
 import ui.panels.otherpanels.ButtonsAfterWinPanel;
 import ui.panels.otherpanels.EntityPanel;
 
+/**
+ * Represents the battle panel in the game interface.
+ * It manages the layout and interactions of the battle screen, including the display of battle-related text and action buttons.
+ */
 public class BattlePanel extends JPanel {
 
-    // Attributes - Components
+    /**
+     * Background image for the battle panel.
+     */
     private final Image background;
+
+    /**
+     * Panel located at the south part of the layout.
+     */
     private final JPanel southPanel = new JPanel();
+
+    /**
+     * Panel located at the north part of the layout.
+     */
     private final JPanel northPanel = new JPanel();
 
+    /**
+     * Text area for displaying battle-related messages.
+     */
     private final BattleTextArea battleTextArea = new BattleTextArea();
+
+    /**
+     * Panel containing buttons for actions after winning a battle.
+     */
     private final ButtonsAfterWinPanel buttonsAfterWinPanel = new ButtonsAfterWinPanel();
+
+    /**
+     * Panel containing buttons for attack actions.
+     */
     private AttackButtonsPanel attackButtonsPanel;
 
-    // Constructor
+    /**
+     * Creates a new BattlePanel with its components initialized, setting the background image.
+     */
     public BattlePanel() {
-
         String imagesPath = Settings.getInstance().getFilePaths().get("images");
-
         ImageIcon image = new ImageIcon(imagesPath + "combat-background.jpg");
         background = image.getImage();
-
         initializePanel();
     }
 
-
-    // Methods
-    public void reset(){
+    /**
+     * Resets the panel for a new battle, reinitializing the components.
+     */
+    public void reset() {
         southPanel.removeAll();
         attackButtonsPanel = new AttackButtonsPanel();
-
         redrawEntities();
         southPanel.add(battleTextArea);
         southPanel.add(attackButtonsPanel);
     }
+
+    /**
+     * Enables or disables the attack buttons based on the provided option.
+     *
+     * @param option true to enable, false to disable.
+     */
     public void enableAttackButtons(boolean option) {
         attackButtonsPanel.enableButtons(option);
     }
 
+    /**
+     * Enables or disables the power-up buttons based on the provided option.
+     *
+     * @param option true to enable, false to disable.
+     */
     public void enablePowerUpButtons(boolean option) {
         buttonsAfterWinPanel.enablePowerUpButtons(option);
     }
 
+    /**
+     * Adds buttons for actions after winning a battle to the south panel.
+     */
     public void addButtonsAfterWinning() {
         enablePowerUpButtons(true);
         southPanel.remove(attackButtonsPanel);
@@ -60,18 +97,28 @@ public class BattlePanel extends JPanel {
         redraw();
     }
 
-    public void addEndGameButtons(){
+    /**
+     * Adds a button to show credits after the game ends.
+     */
+    public void addEndGameButtons() {
         southPanel.remove(buttonsAfterWinPanel);
         southPanel.add(new ShowCreditsButton());
     }
 
+    /**
+     * Adds buttons for actions after losing a battle to the south panel.
+     */
     public void addButtonsAfterLosing() {
         southPanel.remove(attackButtonsPanel);
         southPanel.add(new ButtonsAfterLostPanel());
         redraw();
     }
 
-
+    /**
+     * Paints the background of the panel.
+     *
+     * @param g Graphics object used for painting.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -80,19 +127,20 @@ public class BattlePanel extends JPanel {
         }
     }
 
+    /**
+     * Redraws the player and enemy entities on the panel.
+     */
     private void redrawEntities() {
-
         northPanel.removeAll();
         northPanel.add(new EntityPanel(Game.getInstance().getBattle().getPlayer()));
         northPanel.add(new EntityPanel(Game.getInstance().getBattle().getEnemy()));
-
         redraw();
     }
 
-    // Methods for constructor
-
+    /**
+     * Initializes the layout and components of the panel.
+     */
     private void initializePanel() {
-
         this.setLayout(new BorderLayout());
 
         northPanel.setLayout(new GridLayout(1, 2, 30, 30));
@@ -107,15 +155,21 @@ public class BattlePanel extends JPanel {
         this.add(southPanel, BorderLayout.CENTER);
     }
 
-    private void redraw(){
+    /**
+     * Redraws the panel, updating its components.
+     */
+    private void redraw() {
         repaint();
         revalidate();
     }
 
-
-
     //------------------ GETTERS ------------------//
 
+    /**
+     * Gets the battle text area.
+     *
+     * @return the battle text area.
+     */
     public BattleTextArea getBattleTextArea() {
         return battleTextArea;
     }

@@ -8,31 +8,40 @@ import settings.Settings;
 import ui.PanelManager;
 
 /**
- * Abstract class that represents an entity with stats, an attack list and a string that identifies it
+ * Abstract class representing an entity with stats, an attack list, and a unique identifier.
  */
 abstract public class Entity {
 
-
-    //Attributes
+    // Attributes
+    /**
+     * The unique string identifier of the entity.
+     */
     protected String identifier;
-    protected Map<String, Integer> stats;
-    protected List<Attack> attackList;
-
 
     /**
-     * Constructs an entity object by default setting just the identifier
+     * A map containing the stats of the entity, where the key is the stat name and the value is its value.
+     */
+    protected Map<String, Integer> stats;
+
+    /**
+     * A list of attacks available to the entity.
+     */
+    protected List<Attack> attackList;
+
+    /**
+     * Constructs an Entity object by initializing its identifier.
      *
-     * @param newIdentifier String that identifies the entity
+     * @param newIdentifier a unique string identifier for the entity.
      */
     public Entity(String newIdentifier) {
         setIdentifier(newIdentifier);
     }
 
     /**
-     * Calculates the damage, reduces target health and shows in battle text area the turn info
+     * Calculates damage, reduces the target's health, and updates the battle text area with the turn info.
      *
-     * @param target    Entity who receives the damage
-     * @param attack    Attack selected to perform
+     * @param target the target entity receiving the damage.
+     * @param attack the attack performed by this entity.
      */
     public void performAttackTo(Entity target, Attack attack) {
         int damage = getStatValue("strength") * attack.getPower();
@@ -43,9 +52,9 @@ abstract public class Entity {
     }
 
     /**
-     * From an amount of damage, reduces entity's health
+     * Reduces the entity's health based on the damage received.
      *
-     * @param damage Amount of damage to be taken
+     * @param damage the amount of damage to be taken.
      */
     public void takeDamage(int damage) {
         if (this.isDead()) {
@@ -55,58 +64,92 @@ abstract public class Entity {
         int damageTaken = (int) (damage / (getStatValue("defense") * Settings.getInstance().getMultipliers().get("defense")));
         int newHealth = getStatValue("health") - damageTaken;
 
-
         setStatValue("health", Math.max(newHealth, 0));
     }
 
     /**
-     * Checks if entity is dead
+     * Checks if the entity is dead.
      *
-     * @return true if health is 0 or less
+     * @return true if the entity's health is 0 or less, false otherwise.
      */
     public boolean isDead() {
         return getStatValue("health") <= 0;
     }
 
     /**
-     * Overrides toString method
+     * Returns the string representation of the entity.
      *
-     * @return entity's string identifier
+     * @return the entity's identifier.
      */
     @Override
     public String toString() {
         return identifier;
     }
 
-
     //------------------ SETTERS AND GETTERS ------------------//
 
+    /**
+     * Sets the entity's identifier.
+     *
+     * @param newIdentifier the new identifier for the entity.
+     */
     public void setIdentifier(String newIdentifier) {
         identifier = newIdentifier;
     }
 
+    /**
+     * Sets the entity's stats.
+     *
+     * @param _stats a map containing the entity's stats.
+     */
     public void setStats(Map<String, Integer> _stats) {
         stats = _stats;
     }
 
+    /**
+     * Sets the value of a specific stat.
+     *
+     * @param stat     the name of the stat to update.
+     * @param newValue the new value for the stat.
+     */
     public void setStatValue(String stat, int newValue) {
         stats.put(stat.toLowerCase(), newValue);
     }
 
+    /**
+     * Sets the entity's attack list.
+     *
+     * @param newAttackList a list of attacks available to the entity.
+     */
     public void setAttackList(List<Attack> newAttackList) {
         attackList = newAttackList;
     }
 
+    /**
+     * Gets the value of a specific stat.
+     *
+     * @param stat the name of the stat to retrieve.
+     * @return the value of the specified stat.
+     */
     public int getStatValue(String stat) {
         return stats.get(stat.toLowerCase());
     }
 
+    /**
+     * Gets the entity's attack list.
+     *
+     * @return the list of attacks available to the entity.
+     */
     public List<Attack> getAttackList() {
         return attackList;
     }
 
+    /**
+     * Gets the entity's stats.
+     *
+     * @return a map containing the entity's stats.
+     */
     public Map<String, Integer> getStats() {
         return stats;
     }
-
 }

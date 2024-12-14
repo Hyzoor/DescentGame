@@ -4,12 +4,15 @@ import game.Game;
 import game.JsonMapper;
 import settings.Settings;
 
+/**
+ * Represents a player character in the game.
+ */
 public class Player extends Entity {
 
     /**
-     * Constructs player from a json file using JsonMapper
+     * Constructs a Player object by mapping its attributes from a JSON file using JsonMapper.
      *
-     * @param newIdentifier String identifier. Has to be named same as the json file
+     * @param newIdentifier a unique string identifier. It must match the name of the corresponding JSON file.
      * @see JsonMapper
      */
     public Player(String newIdentifier) {
@@ -20,10 +23,9 @@ public class Player extends Entity {
     }
 
     /**
-     * Restore full player's health.
+     * Restores the player's health to its maximum value.
      */
     public void restoreHealth() {
         setStatValue("health", getStatValue("max_health"));
     }
-
 }

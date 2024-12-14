@@ -7,17 +7,19 @@ import game.JsonMapper;
 import settings.Settings;
 
 /**
- * Represents an Enemy that auto perform attacks to the player
+ * Represents an enemy that automatically performs attacks on the player.
  */
 public class Enemy extends Entity {
 
+    /**
+     * The type of the enemy.
+     */
     private EnemyType enemyType;
 
     /**
-     * Constructs enemy from a json file using JsonMapper
+     * Constructs an enemy from a JSON file using {@link JsonMapper}.
      *
-     * @param newIdentifier String identifier. Has to be named same as the json file
-     * @see JsonMapper
+     * @param newIdentifier the string identifier of the enemy. Must match the name of the JSON file.
      */
     public Enemy(String newIdentifier) {
         super(newIdentifier);
@@ -27,9 +29,9 @@ public class Enemy extends Entity {
     }
 
     /**
-     * Perform an attack to a target with a random attack
+     * Performs an attack on a target using a randomly selected attack.
      *
-     * @param target Entity that receives the damage
+     * @param target the entity that receives the damage.
      */
     public void performAttackTo(Entity target) {
         Attack randomAttack = attackSelector();
@@ -37,9 +39,9 @@ public class Enemy extends Entity {
     }
 
     /**
-     * Selects a random attack from the list
+     * Selects a random attack from the list of available attacks.
      *
-     * @return Index of the attack selected
+     * @return the selected attack.
      */
     private Attack attackSelector() {
         Random random = new Random();
@@ -49,7 +51,12 @@ public class Enemy extends Entity {
 
     //------------------ GETTERS ------------------//
 
-    public EnemyType getEnemyType(){
+    /**
+     * Gets the type of the enemy.
+     *
+     * @return the enemy type.
+     */
+    public EnemyType getEnemyType() {
         return this.enemyType;
     }
 }
