@@ -22,10 +22,8 @@ public class TitleScreenPanel extends JPanel {
      * Creates a new TitleScreenPanel, initializing the background and adding the start button.
      */
     public TitleScreenPanel() {
-        // Load the background image
         background = new ImageIcon("src/resources/images/title-screen.jpg").getImage();
 
-        // Set the layout and add the start button
         this.setLayout(new BorderLayout());
         this.add(new TitleScreenStartButton(), BorderLayout.CENTER);
     }
@@ -39,7 +37,6 @@ public class TitleScreenPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (background != null) {
-            // Draw the background image to fill the entire panel
             g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
         }
     }

@@ -62,14 +62,14 @@ public class BattleTextArea extends JTextArea {
      */
     public void showBattleCount() {
         clearText();  // Clear previous text
-        addText("Actual Battle : " + Game.getInstance().getBattleCounter().get());  // Show the current battle count
+        addText("Actual Battle : " + Game.getInstance().getBattleCounter().get());
     }
 
     /**
      * Sets the background image for the battle text area.
      */
     private void setBackground(){
-        background = new ImageIcon("src/resources/images/textbox-background.png").getImage();  // Set the background image
+        background = new ImageIcon("src/resources/images/textbox-background.png").getImage();
     }
 
     /**
@@ -80,8 +80,8 @@ public class BattleTextArea extends JTextArea {
         try{
             // Load the custom font from file
             File fontFile = new File("src/resources/fonts/superlegendboy.ttf");
-            customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile); // Create a font object from the file
-            this.setFont(customFont.deriveFont(Font.PLAIN, 16));  // Apply the font to the text area
+            customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+            this.setFont(customFont.deriveFont(Font.PLAIN, 16));
 
         } catch(IOException e){
             System.err.print("Couldnt open font file correctly");
@@ -91,11 +91,10 @@ public class BattleTextArea extends JTextArea {
             System.err.print(e.getMessage());
         }
 
-        // Set additional properties for the text area
-        this.setMargin(new Insets(0,0,0,0));  // Remove margins
-        this.setEditable(false);  // Make the text area non-editable
-        this.setCaretPosition(this.getDocument().getLength());  // Set the caret to the end of the document
-        this.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 10));  // Set the border for the text area
+        this.setMargin(new Insets(0,0,0,0));
+        this.setEditable(false);
+        this.setCaretPosition(this.getDocument().getLength());
+        this.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 10));
     }
 
     /**
@@ -106,9 +105,9 @@ public class BattleTextArea extends JTextArea {
     @Override
     protected void paintComponent(Graphics g) {
         if (background != null) {
-            g.drawImage(background, 0, 0, getWidth(), getHeight(), this);  // Draw the background image
+            g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
         }
 
-        super.paintComponent(g);  // Perform the default painting behavior (painting the text area content)
+        super.paintComponent(g);
     }
 }

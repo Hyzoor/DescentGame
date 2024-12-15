@@ -28,7 +28,7 @@ public class ShowCreditsButton extends JButton implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Switch the panel to the credits screen
+
         PanelManager.changeToCredits();
     }
 }

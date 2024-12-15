@@ -37,14 +37,12 @@ public class SelectClassButton extends JButton implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Create a new player with the selected class and set it in the game instance
+
         Player newPlayer = new Player(playerIdentifier);
         Game.getInstance().setPlayer(newPlayer);
 
-        // Start a new battle
         Game.getInstance().createBattle();
 
-        // Switch to the battle view
         PanelManager.changeToBattle();
     }
 }

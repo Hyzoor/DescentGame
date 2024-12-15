@@ -19,17 +19,17 @@ public class PlayerOptionPanel extends JPanel {
      */
     public PlayerOptionPanel(Player classOption) {
 
-        // Create a button panel to hold the SelectClassButton
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BorderLayout());
-        buttonPanel.add(new SelectClassButton(classOption.toString()), BorderLayout.CENTER); // Add the select button
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10)); // Set a border around the button panel
-        buttonPanel.setOpaque(false); // Make the button panel transparent
+        buttonPanel.add(new SelectClassButton(classOption.toString()), BorderLayout.CENTER);
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
+        buttonPanel.setOpaque(false);
 
-        // Set the layout for the PlayerOptionPanel
+
         this.setLayout(new GridLayout(2, 1, 10, 10));
         this.add(new EntityPanel(classOption)); // Add the entity image for the class
         this.add((buttonPanel)); // Add the button panel
-        this.setOpaque(false); // Make the PlayerOptionPanel transparent
+        this.setOpaque(false);
     }
 }

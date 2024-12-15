@@ -5,33 +5,31 @@ import java.util.Map;
 import game.JsonMapper;
 
 /**
- * Esta clase gestiona la configuración global del juego. Carga las rutas de archivos y los multiplicadores desde un archivo JSON.
+ * This class manages the global configuration of the game. Loads file paths and the multipliers from a JSON file
  */
 public class Settings {
 
     private static Settings instance;
-    private final Map<String, String> filePaths;  // Mapa que almacena las rutas de los archivos utilizados en el juego
-    private final Map<String, Double> multipliers;  // Mapa que almacena los multiplicadores de diferentes aspectos del juego
+    private final Map<String, String> filePaths;
+    private final Map<String, Double> multipliers;
 
     /**
-     * Constructor privado que carga la configuración desde un archivo JSON.
+     * Private constructor that loads the configuration from JSON file.
      */
     private Settings() {
 
-        filePaths = new HashMap<>();  // Inicializa el mapa de rutas de archivo
-        multipliers = new HashMap<>();  // Inicializa el mapa de multiplicadores
+        filePaths = new HashMap<>();
+        multipliers = new HashMap<>();
 
-        // Ruta del archivo JSON de configuración
         String jsonFilePath = "src/settings/settings.json";
 
-        // Mapea los datos del archivo JSON a la instancia de Settings
         JsonMapper.mapObject(jsonFilePath, this);
     }
 
     /**
-     * Devuelve la instancia única de la clase Settings. Si aún no existe, la crea.
+     * Returns the unique instance of the Settings class. If doesn't exist already, it instantiates one
      *
-     * @return La instancia única de Settings
+     * @return The unique instance of Settings
      */
     public static Settings getInstance() {
         if (instance == null) {
@@ -41,18 +39,18 @@ public class Settings {
     }
 
     /**
-     * Devuelve el mapa de rutas de archivos utilizados en el juego.
+     * Returns map with the file's paths that are used in the game
      *
-     * @return Mapa con las rutas de los archivos
+     * @return Map with file's paths
      */
     public Map<String, String> getFilePaths() {
         return filePaths;
     }
 
     /**
-     * Devuelve el mapa de multiplicadores utilizados en el juego.
+     * Returns map with the multipliers that are used in the game
      *
-     * @return Mapa con los multiplicadores
+     * @return Map with the multipliers
      */
     public Map<String, Double> getMultipliers() {
         return multipliers;

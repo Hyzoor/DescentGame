@@ -100,10 +100,10 @@ abstract public class Entity {
     /**
      * Sets the entity's stats.
      *
-     * @param _stats a map containing the entity's stats.
+     * @param newStats a map containing the entity's stats.
      */
-    public void setStats(Map<String, Integer> _stats) {
-        stats = _stats;
+    public void setStats(Map<String, Integer> newStats) {
+        stats = newStats;
     }
 
     /**

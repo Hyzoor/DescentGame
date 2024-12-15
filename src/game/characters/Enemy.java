@@ -2,7 +2,6 @@ package game.characters;
 
 import java.util.Random;
 
-import game.Game;
 import game.JsonMapper;
 import settings.Settings;
 

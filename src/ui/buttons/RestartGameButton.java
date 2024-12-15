@@ -36,11 +36,10 @@ public class RestartGameButton extends JButton implements ActionListener {
         Player playerWithoutUpgrades = new Player(actualPlayer.toString());
         Game.getInstance().setPlayer(playerWithoutUpgrades);
 
-        // Reset the battle counter and initiate a new battle
+
         Game.getInstance().getBattleCounter().reset();
         Game.getInstance().createBattle();
 
-        // Switch the panel to the battle view
         PanelManager.changeToBattle();
     }
 }

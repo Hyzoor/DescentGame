@@ -32,7 +32,6 @@ public class AttackButtonsPanel extends JPanel {
      * @param option true to enable the buttons, false to disable them.
      */
     public void enableButtons(boolean option) {
-        // Iterate through all components (buttons) in the panel and set their enabled state
         for (Component button : this.getComponents()) {
             button.setEnabled(option);
         }
@@ -43,12 +42,10 @@ public class AttackButtonsPanel extends JPanel {
      * Each attack is represented by an AttackButton.
      */
     private void addAttackButtons() {
-        // Get the player instance
         Player player = Game.getInstance().getPlayer();
 
-        // Iterate through the player's attack list and add a button for each attack
         for (Attack attack : player.getAttackList()) {
-            this.add(new AttackButton(attack)); // Create and add an AttackButton for each attack
+            this.add(new AttackButton(attack));
         }
     }
 }

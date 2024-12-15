@@ -27,7 +27,7 @@ public class TitleScreenStartButton extends JButton implements ActionListener {
      * The icon is loaded from the settings' images path.
      */
     private void initializeButton() {
-        // Remove borders and set content area to not be filled
+
         this.setBorderPainted(false);
         this.setContentAreaFilled(false);
         this.setFocusPainted(false);

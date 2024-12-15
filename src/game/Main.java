@@ -25,16 +25,10 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        // Initialize the settings instance
         Settings settings = Settings.getInstance();
-
-        // Initialize the game instance
         Game game = Game.getInstance();
-
-        // Initialize the main frame of the application
         MainFrame mainFrame = MainFrame.getInstance();
 
-        // Change to the title screen
         PanelManager.changeToTittleScreen();
     }
 }

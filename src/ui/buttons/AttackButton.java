@@ -9,6 +9,7 @@ import ui.PanelManager;
 
 /**
  * Represents a button in the UI that, when clicked, performs an attack on an enemy using an associated Attack instance.
+ * @see Attack
  */
 public class AttackButton extends JButton implements ActionListener {
 
