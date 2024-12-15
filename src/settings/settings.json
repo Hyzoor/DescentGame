@@ -6,15 +6,17 @@
         "playersSprites": "src/resources/images/characters/players/",
         "enemiesSprites": "src/resources/images/characters/enemies/",
 
-        "fonts": "src/fonts/",
+        "fonts": "src/resources/fonts/",
         "images": "src/resources/images/"
     },
 
     "multipliers" : {
         "defense" : 0.4,
-        "powerUp" : 1.3,
+        "powerUp" : 1.4,
         "difficulty" : 1.25
-    }
+    },
+
+    "numberOfBattlesToWin" : 8
 
 
 }

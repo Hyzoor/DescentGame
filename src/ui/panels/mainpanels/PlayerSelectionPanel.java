@@ -25,7 +25,7 @@ public class PlayerSelectionPanel extends JPanel {
      */
     public PlayerSelectionPanel() {
 
-        // Retrieve the image path from settings
+
         String imagesPath = Settings.getInstance().getFilePaths().get("images");
 
         ImageIcon imageIcon = new ImageIcon(imagesPath + "combat-background.jpg");

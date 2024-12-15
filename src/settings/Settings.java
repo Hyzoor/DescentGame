@@ -12,6 +12,7 @@ public class Settings {
     private static Settings instance;
     private final Map<String, String> filePaths;
     private final Map<String, Double> multipliers;
+    private int numberOfBattlesToWin;
 
     /**
      * Private constructor that loads the configuration from JSON file.
@@ -56,4 +57,12 @@ public class Settings {
         return multipliers;
     }
 
+    /**
+     * Returns the number of battles that the players has to win to end the game
+     *
+     * @return the number of battles needed to win
+     */
+    public int getNumberOfBattlesToWin() {
+        return numberOfBattlesToWin;
+    }
 }

@@ -1,5 +1,7 @@
 package game;
 
+import settings.Settings;
+
 /**
  * A class that keeps track of the number of battles.
  * It has a maximum battle limit and provides functionality to increment, reset, and check if the max number of battles is reached.
@@ -7,13 +9,14 @@ package game;
 public class BattleCounter {
 
     private int count;
-    private final int maxBattles = 6;
+    private final int maxBattles;
 
     /**
      * Constructor for BattleCounter.
      * Initializes the counter to 0 by calling {@link #reset()}.
      */
     public BattleCounter() {
+        maxBattles = Settings.getInstance().getNumberOfBattlesToWin();
         reset();
     }
 

@@ -2,6 +2,7 @@ package ui;
 
 import game.BattleCounter;
 import game.Game;
+import settings.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -79,7 +80,8 @@ public class BattleTextArea extends JTextArea {
         Font customFont;
         try{
             // Load the custom font from file
-            File fontFile = new File("src/resources/fonts/superlegendboy.ttf");
+            String fontsPath = Settings.getInstance().getFilePaths().get("fonts");
+            File fontFile = new File(fontsPath + "superlegendboy.ttf");
             customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile);
             this.setFont(customFont.deriveFont(Font.PLAIN, 16));
 

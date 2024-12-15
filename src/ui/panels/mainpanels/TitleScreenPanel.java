@@ -3,6 +3,7 @@ package ui.panels.mainpanels;
 import javax.swing.*;
 import java.awt.*;
 
+import settings.Settings;
 import ui.buttons.TitleScreenStartButton;
 
 /**
@@ -22,7 +23,8 @@ public class TitleScreenPanel extends JPanel {
      * Creates a new TitleScreenPanel, initializing the background and adding the start button.
      */
     public TitleScreenPanel() {
-        background = new ImageIcon("src/resources/images/title-screen.jpg").getImage();
+        String imagesPath = Settings.getInstance().getFilePaths().get("images");
+        background = new ImageIcon(imagesPath + "title-screen.jpg").getImage();
 
         this.setLayout(new BorderLayout());
         this.add(new TitleScreenStartButton(), BorderLayout.CENTER);
