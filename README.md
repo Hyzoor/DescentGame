@@ -18,5 +18,5 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/DescentGame.git
+   git clone https://github.com/Hyzoor/DescentGame.git
 2. Execute jar file "DescentGame.jar"
