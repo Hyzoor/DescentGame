@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="DescentGame:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DescentGame_jar</output-path>
+    <root id="archive" name="DescentGame.jar">
+      <element id="module-output" name="DescentGame" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libraries/jackson-annotations-2.18.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libraries/jackson-core-2.18.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libraries/jackson-databind-2.18.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
