@@ -74,6 +74,7 @@ public class PanelManager {
     public static void changeToBattle() {
         mainFrame.getContentPane().removeAll();
         mainFrame.add(battlePanel);
+        battlePanel.reset();
         updateMainFrame();
     }
 

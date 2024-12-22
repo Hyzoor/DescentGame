@@ -67,6 +67,7 @@ public class BattlePanel extends JPanel {
         redrawEntities();
         southPanel.add(battleTextArea);
         southPanel.add(attackButtonsPanel);
+        battleTextArea.clearText();
     }
 
     /**

@@ -28,7 +28,6 @@ public class ShowCreditsButton extends JButton implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-
         PanelManager.changeToCredits();
     }
 }

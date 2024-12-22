@@ -78,7 +78,7 @@ public class Game {
     }
 
     private void endGame() {
-        PanelManager.getBattlePanel().getBattleTextArea().addText("You have reach level " + battleCounter.get() + ", you have win!");
+        PanelManager.getBattlePanel().getBattleTextArea().addText("You have reached level " + battleCounter.get() + ", you have won!");
         PanelManager.getBattlePanel().addEndGameButtons();
 
     }
